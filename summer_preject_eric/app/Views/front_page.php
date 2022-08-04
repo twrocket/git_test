@@ -8,8 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-
-            <div align="center"><a href="/LoginController/index"><button type="button">登錄</button></a></div>
-            
+    <h1 align="center">首頁<h1>
+    <?php
+    
+    if ($_SESSION['LOGIN'] == 0){
+        echo '<div align="center"><a href="/LoginController/index"><button type="button">登錄</button></a></div>';
+    }
+    else{
+        $_SESSION['LOGIN'] = 0;
+        echo '<div align="center"><a href="/Home/index"><button type="button">登出</button></a></div>';
+    }
+    ?>   
 </body>
 </html>

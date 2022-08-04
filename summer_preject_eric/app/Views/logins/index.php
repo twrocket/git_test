@@ -8,19 +8,15 @@
     </head>
     <body>
         <div style="text-align: center"> 
-                <h1>建立貼文</h1>
-                <?php
-                    session_start();
-                    $vb = 0;
-                    $_SESSION['num'] = $vb; ?>
-            <form action="/LoginController/store" enctype="mutipart/form-data" method="POST"> 
+                <h1>登入頁面</h1>
+            <form action="/LoginController/check" enctype="mutipart/form-data" method="POST"> 
                 <h2>帳號: </h2>
                 <input name="account" type="text">
                 <br>
                 <h2>密碼: </h2>
                 <input name="password" type="text">
                 <br>
-                <button type="submit">Add New Post</button>
+                <button type="submit" name="SubmitButton">login</button>
             </form>
         <div>
     </body>
