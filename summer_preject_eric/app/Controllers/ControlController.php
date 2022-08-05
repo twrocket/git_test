@@ -8,7 +8,7 @@ class ControlController extends BaseController
 {
     public function index()
     {
-        return view(controlsystems/index);
+        return view('controlsystems/index');
     }
     
 }
