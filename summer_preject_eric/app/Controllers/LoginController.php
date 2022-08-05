@@ -18,7 +18,7 @@ class LoginController extends BaseController
     {
         $message = "hello";
         $email = \Config\Services::email();
-        $email->setFrom('twbooster@yahoo.com', 'from CI4');
+        $email->setFrom('twbooster@yahoo.com', 'from CI4 test');
         $email->setTo('twimposter@yahoo.com');
         $email->setSubject('hi');
         $email->setMessage($message);//your message here
