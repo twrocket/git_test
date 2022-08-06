@@ -47,22 +47,22 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost="smtp.mail.yahoo.com";
+    public $SMTPHost="smtp.gmail.com";
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser = "twbooster@yahoo.com";
+    public $SMTPUser = "liq71795@gmail.com";
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass = "sjyuphfmgzuwmfss";
-
+    public $SMTPPass = "tvophvurhgqgczxu";
+    //sjyuphfmgzuwmfss  (for twbooster@yahoo.com)
     /**
      * SMTP Port
      *
