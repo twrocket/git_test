@@ -17,53 +17,29 @@ class LoginController extends BaseController
     }
     public function check()
     {
-        $message = "hello";
-        $email = \Config\Services::email();
-        $email->setFrom('liq71795@gmail.com', 'from CI4 test');
-        $email->setTo('twbooster@yahoo.com');
-        $email->setSubject('hi');
-        $email->setMessage($message);//your message here
-        
-    
-        $email->send();
-        
-
-        // $this->load->library('email');
-        // $this->email->from('twbooster@yahoo.com', 'Your Name');
-        // $this->email->to('ericier11222255@gmail.com');
-        // $this->email->subject('Email Test');
-        // $this->email->message('Testing the email class.');
-
-        // $this->email->send();
-        // $model = new Login();
-        // $logins = [                         //抓全部資料
-        //     'logins' => $model->findAll()
-        // ]; 
-        // foreach($logins as $logins_item){
-        //     foreach($logins_item as $login){
-        //         print_r($login['id']);
-        //     }
-        // }
-        
-        // if(isset($_SESSION['LOGIN'])){
-        //     if(!empty($logins)) {
-                
-        //     }
-        //     if($_POST['account'] == 'test'){
-        //         $_SESSION['LOGIN'] = 1;
-        //         return redirect('Home');
-        //         }
-        //     else{
-        //         echo '<script>alert("incorrect username or password")</script>';
-        //         return view('logins/index');
-        //     }
-        // }
-        // else{
-        // return redirect('Home');
-        // }
-        $data = [
-            'account' => $this->request->getVar('account'), 
-            'password' => $this->request->getVar('password')
-        ];
+        $model = new Login();
+        $logins = [                         //抓全部資料
+            'logins' => $model->findAll()
+        ]; 
+        foreach($logins as $logins_item){
+            foreach($logins_item as $login){
+                    if($login['account']==$_POST['account']&&$login['password']==$_POST['password']){
+                            echo '<script>alert("correct")</script>';
+                            $_SESSION['LOGIN'] = 1;
+                            $message = "you log in 徵選會系統";
+                            $email = \Config\Services::email();
+                            $email->setFrom('liq71795@gmail.com', 'Login  Notification');
+                            $email->setTo('11222255eric@gmail.com');
+                            $email->setSubject('hi');
+                            $email->setMessage($message);//your message here
+                            $email->send();
+                            return view('front_page');
+                    }
+                    else{
+                        echo '<script>alert("incorrect username or password")</script>';
+                        return view('logins/index');
+                    }
+            }
+        }
     }
 }

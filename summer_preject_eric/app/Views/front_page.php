@@ -20,7 +20,6 @@
     }
     ?>   
   <div align="center">
-    <a href="/LoginController/index"><button type="button">登錄</button></a><br>
     <a href="#"><button type="button">大學繁星推薦</button></a><br>
     <a href="#"><button type="button">大學個人申請</button></a><br>
     <a href="#"><button type="button">高中繁星推薦</button></a><br>
