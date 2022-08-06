@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Login;
 session_start();
-
 class LoginController extends BaseController
 {
     public function index()
@@ -17,6 +16,24 @@ class LoginController extends BaseController
     }
     public function check()
     {
+        $message = "hello";
+        $email = \Config\Services::email();
+        $email->setFrom('liq71795@gmail.com', 'from CI4 test');
+        $email->setTo('twbooster@yahoo.com');
+        $email->setSubject('hi');
+        $email->setMessage($message);//your message here
+        
+    
+        $email->send();
+        
+
+        // $this->load->library('email');
+        // $this->email->from('twbooster@yahoo.com', 'Your Name');
+        // $this->email->to('ericier11222255@gmail.com');
+        // $this->email->subject('Email Test');
+        // $this->email->message('Testing the email class.');
+
+        // $this->email->send();
         $model = new Login();
         $logins = [                         //抓全部資料
             'logins' => $model->findAll()
