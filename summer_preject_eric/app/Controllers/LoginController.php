@@ -35,15 +35,15 @@ class LoginController extends BaseController
         // $this->email->message('Testing the email class.');
 
         // $this->email->send();
-        $model = new Login();
-        $logins = [                         //抓全部資料
-            'logins' => $model->findAll()
-        ]; 
-        foreach($logins as $logins_item){
-            foreach($logins_item as $login){
-                print_r($login['id']);
-            }
-        }
+        // $model = new Login();
+        // $logins = [                         //抓全部資料
+        //     'logins' => $model->findAll()
+        // ]; 
+        // foreach($logins as $logins_item){
+        //     foreach($logins_item as $login){
+        //         print_r($login['id']);
+        //     }
+        // }
         
         // if(isset($_SESSION['LOGIN'])){
         //     if(!empty($logins)) {
