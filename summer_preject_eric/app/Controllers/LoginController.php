@@ -9,14 +9,11 @@ class LoginController extends BaseController
 {
     public function index()
     {
-<<<<<<< HEAD
        //
-=======
         if(!isset($_SESSION['LOGIN'])){
             $_SESSION['LOGIN'] = 0;
             }
         return view('logins/index');
->>>>>>> afecba8fd76027dd8e80b95f531195172349855b
     }
     public function check()
     {
