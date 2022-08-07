@@ -6,7 +6,7 @@
 
 <!-- header -->
 <?= $this->section('left_navbar') ?>
-	<a href="#">回首頁</a>
+	<a href="/home">回首頁</a>
 	<a href="#">大學繁星</a>
 	<a href="#">大學個申</a>
 	<a href="#">高中繁星</a>
@@ -15,11 +15,11 @@
 
 <?= $this->section('right_navbar') ?>
 	<!-- if user not login -->
-	<span>未登入</span>
-	<a href="#">管理者登入</a>
+	<!-- <span>未登入</span>
+	<a href="#">管理者登入</a> -->
 	<!-- if user login -->
-	<!-- <span>使用者</span> -->
-	<!-- <a href="#"><button type="button" class="btn btn-light">登出</button></a> -->
+	<span>使用者</span>
+	<a href="#">登出</a>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
@@ -30,13 +30,13 @@
 <?= $this->section('sidebar') ?>	
 	<ul class="nav flex-column">
 		<li class="nav-item">
-			<a class="nav-link" href="#">已發布公告</a>
+			<a class="nav-link" href="/PostController/index">已發布公告</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="#">草稿</a>
+			<a class="nav-link" href="/PostController/draft">草稿</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="#">發布公告</a>
+			<a class="nav-link" href="/PostController/create">發布公告</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="#">控制頁面</a>
