@@ -18,6 +18,17 @@ class PostController extends BaseController
         return view('posts/index', $data);
     }
 
+    public function draft()
+    {
+        $model = new Post();
+
+        $data = [
+            'posts' => $model->findAll()
+        ];
+
+        return view('posts/draft', $data);
+    }
+
     public function create()
     {
         return view('posts/create');
@@ -29,7 +40,14 @@ class PostController extends BaseController
 
         $data = [
             'title' => $this->request->getVar('title'),
-            'content' => $this->request->getVar('content')
+            'website' => $this->request->getVar('website'),
+            'category' => $this->request->getVar('category'),
+            'content' => $this->request->getVar('content'),
+            'file' => $this->request->getVar('file'),
+            'dateStart' => $this->request->getVar('dateStart'),
+            'dateEnd' => $this->request->getVar('dateEnd'),
+            'update' => $this->request->getVar('update'),
+            'status' => $this->request->getVar('status')
         ];
 
         $model->save($data);
@@ -46,5 +64,16 @@ class PostController extends BaseController
         ];
 
         return view('posts/show', $data);
+    }
+
+    public function edit($post_id)
+    {
+        $model = new Post();
+
+        $data = [
+            'posts' => $model->find($post_id)
+        ];
+
+        return view('posts/edit', $data);
     }
 }
