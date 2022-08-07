@@ -16,7 +16,14 @@ class Post extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'title',
-        'content'
+        'website',
+        'category',
+        'content',
+        'file',
+        'dateStart',
+        'dateEnd',
+        'update',
+        'status'
     ];
 
     // Dates

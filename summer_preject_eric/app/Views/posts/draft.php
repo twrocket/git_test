@@ -1,17 +1,17 @@
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('post_content') ?>
-	<h3>已發布公告</h3>
+	<h3>草稿</h3>
 	<?php
 	if(!empty($posts)) {
 		usort($posts, 'sort_by_update');
 		foreach($posts as $posts_item) {
-			if($posts_item['status'] == "發布") {
+			if($posts_item['status'] == "草稿") {
 				echo '
 					<span>'.$posts_item['update'].'</span>
 					<span>'.$posts_item['category'].'</span>
 					<a href="/PostController/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a>
-					<a href="/PostController/edit/'.$posts_item['id'].'">編輯</a><br>	
+					<a href="/PostController/edit/'.$posts_item['id'].'">編輯</a><br>
 				';
 			}
 		}
