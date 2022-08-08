@@ -35,7 +35,11 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => '',
         'password' => '',
+
         'database' => WRITEPATH.'database/news.db',
+
+        'database' => WRITEPATH.'/database/news.db',
+
         'DBDriver' => 'SQLite3',
         'DBPrefix' => '',
         'pConnect' => false,
