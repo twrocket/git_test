@@ -20,9 +20,44 @@ class Post extends Migration
                 'constraint' => '100',
                 'null' => True,
             ],
+            'website' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
+            ],
+            'category' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
+            ],
             'content' => [
                 'type' => 'VARCHAR',
-                'constraint' => '200',
+                'constraint' => '10000',
+                'null' => True,
+            ],
+            'file' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
+            ],
+            'dateStart' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
+            ],
+            'dateEnd' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
+            ],
+            'update' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
+            ],
+            'status' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
                 'null' => True,
             ]
         ]);
