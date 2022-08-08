@@ -37,7 +37,7 @@
 		<label for="dateEnd">公告下架日期<br>
 			<input type="date" name="dateEnd" required>
 		</label><br>
-		<input type="date" name="update" value="<?php echo date("Y-m-d") ?>" style="display: none">
+		<input type="datetime" name="update" value="<?php echo date("Y-m-d h:i:s") ?>" style="display: none">
 		<div>
 			<button type="submit" name="status" value="草稿">儲存草稿</button>
 			<button type="submit" name="status" value="發布">發布</button>

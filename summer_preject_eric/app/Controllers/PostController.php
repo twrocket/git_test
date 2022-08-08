@@ -48,11 +48,11 @@ class PostController extends BaseController
             'dateEnd' => $this->request->getVar('dateEnd'),
             'update' => $this->request->getVar('update'),
             'status' => $this->request->getVar('status')
-        ];print_r($data);
+        ];
 
-        // $model->save($data);
+        $model->save($data);
 
-        // return redirect('PostController');
+        return redirect('PostController');
     }
 
     public function show($post_id)

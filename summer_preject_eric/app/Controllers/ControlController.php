@@ -10,5 +10,10 @@ class ControlController extends BaseController
     {
         return view('controlsystems/index');
     }
+    public function alert()
+    {
+        ShowAlert("notice");
+    }
     
 }
+?>
