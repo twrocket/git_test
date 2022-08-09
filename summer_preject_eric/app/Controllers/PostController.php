@@ -55,6 +55,31 @@ class PostController extends BaseController
         return redirect('PostController');
     }
 
+    public function update()
+    {
+        $model = new Post();
+
+        $data_id = [
+            'id' => $this->request->getVar('id')
+        ];
+
+        $data = [
+            'title' => $this->request->getVar('title'),
+            'website' => $this->request->getVar('website'),
+            'category' => $this->request->getVar('category'),
+            'content' => $this->request->getVar('content'),
+            'file' => $this->request->getVar('file'),
+            'dateStart' => $this->request->getVar('dateStart'),
+            'dateEnd' => $this->request->getVar('dateEnd'),
+            'update' => $this->request->getVar('update'),
+            'status' => $this->request->getVar('status')
+        ];
+
+        $model->update($data_id, $data);
+
+        return redirect()->to('PostController');
+    }
+
     public function show($post_id)
     {
         $model = new Post();
