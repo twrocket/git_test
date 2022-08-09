@@ -9,7 +9,6 @@ class LoginController extends BaseController
 {
     public function index()
     {
-       //
         if(!isset($_SESSION['LOGIN'])){
             $_SESSION['LOGIN'] = 0;
             }
@@ -46,13 +45,12 @@ class LoginController extends BaseController
     {
         return view('logins/captcha_index');
     }
-    public function captcha()
+    public function captcha_test()
     {
-        echo '<script language="javascript">';
-        echo 'alert(message successfully sent)';  //not showing an alert box.
-        echo '</script>';
+        echo '<script>alert("correct")</script>';
+
         if(!isset($_SESSION)){ session_start(); } //檢查SESSION是否啟動
-            $_SESSION['check_word'] = ''; //設置存放檢查碼的SESSION
+        $_SESSION['check_word'] = ''; //設置存放檢查碼的SESSION
 
         //設置定義為圖片
         header("Content-type: image/PNG");
@@ -64,7 +62,7 @@ class LoginController extends BaseController
         $width 圖片寬
         $high 圖片高
         */
-        imgcode(5,120,30);
+        imgcode(4,120,30);
 
         //imgcode的function
         function imgcode($nums,$width,$high) {
@@ -77,6 +75,7 @@ class LoginController extends BaseController
             }
 
             $_SESSION['check_word'] = $code;
+            echo $code;
 
             //建立圖示，設置寬度及高度與顏色等等條件
             $image = imagecreate($width, $high);
@@ -106,6 +105,7 @@ class LoginController extends BaseController
             imagedestroy($image);
         }
     }
+    
     public function checkcode()
     {
         if(!isset($_SESSION)){
@@ -132,3 +132,4 @@ class LoginController extends BaseController
         }
     }
 }
+?>
