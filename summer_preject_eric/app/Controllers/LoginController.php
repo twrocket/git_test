@@ -7,7 +7,7 @@ use App\Models\Login;
 session_start();
 class LoginController extends BaseController
 {
-    public function index()
+    public function index() //帳號密碼首頁
     {
         // $model = new Login();
         // $data = [
@@ -47,7 +47,7 @@ class LoginController extends BaseController
         foreach($logins as $logins_item){
             foreach($logins_item as $login){
                     if($login['account']==$_POST['account']&&$login['password']==$_POST['password']){
-                            $_SESSION['LOGIN'] = 1;
+                            $_SESSION['LOGIN'] = 1; //成功登入，$_SESSION['LOGIN']設定1
                             $_SESSION['name'] = $login['name'];
                             echo '<script>alert("hello '.$_SESSION['name'].'")</script>';
                             return view('front_page');
