@@ -15,6 +15,11 @@ class Login extends Migration
                 'unsigned' => True,
                 'auto_increment' => True
             ],
+            'name' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True
+            ],
             'account' => [ 
                 'type' => 'VARCHAR',
                 'constraint' => '100',
@@ -23,6 +28,11 @@ class Login extends Migration
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => '200',
+                'null' => True
+            ],
+            'usr_email' => [ 
+                'type' => 'VARCHAR',
+                'constraint' => '100',
                 'null' => True
             ],
         ]);

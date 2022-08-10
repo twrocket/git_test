@@ -15,8 +15,10 @@ class Login extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'name',
         'account',
-        'password'
+        'password',
+        'usr_email'
     ];
 
     // Dates

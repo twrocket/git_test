@@ -22,7 +22,7 @@
 </html>
 <script type ="text/javascript">
         function refresh_code(){ 
-            var img = document.getElementById("imgcode").src="/captcha.php";
+            var img = document.getElementById("imgcode").src="<?= base_url('LoginController/captcha_test')?>";
             img.src = "imgcode?rnd" + Math.random();
         } 
 </script>
