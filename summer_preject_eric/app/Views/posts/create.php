@@ -1,18 +1,6 @@
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('post_content') ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="/Javascript/ckeditor/ckeditor.js"></script>
-</head>
-<body>
-	
-</body>
-</html>
 	<h3>發布公告</h3>
     <form action="/PostController/store" enctype="mutipart/form-data" method="POST">
     	<label for="title">標題<br>
@@ -38,10 +26,7 @@
         	</select>
         </label><br>
 		<label for="content" style = "margin:auto; width:40%; max-width:600px;">內文<br>
-			<textarea id ="editor1" name="content" placeholder="請輸入內文" required></textarea>
-			<script>
-                CKEDITOR.replace( 'editor1' );
-            </script>
+			<textarea id ="editor1" name="content" placeholder="請輸入內文" required></textarea>	
 		</label><br>
 		<label for="file">上傳檔案<br>
 			<input type="file" name="file" multiple>
@@ -62,4 +47,7 @@
 			<button type="submit" name="status" value="發布">發布</button>
 		</div>
     </form>
+	<script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
 <?= $this->endSection() ?>

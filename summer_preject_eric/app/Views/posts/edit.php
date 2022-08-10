@@ -27,7 +27,7 @@
         	</select>
         </label><br>
 		<label for="content">內文<br>
-			<textarea name="content" placeholder="請輸入內文" required><?php echo $posts['content'] ?></textarea>
+			<textarea id ="editor1" name="content" placeholder="請輸入內文" required><?php echo $posts['content'] ?></textarea>
 		</label><br>
 		<label for="file">上傳檔案<br>
 			<input type="file" name="file" multiple>
@@ -44,4 +44,7 @@
 			<button type="submit" name="status" value="發布">發布</button>
 		</div>
     </form>
+	<script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
 <?= $this->endSection() ?>
