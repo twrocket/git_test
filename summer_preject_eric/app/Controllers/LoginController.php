@@ -9,14 +9,6 @@ class LoginController extends BaseController
 {
     public function index() //帳號密碼首頁
     {
-        // $model = new Login();
-        // $data = [
-        //     'name' => 'timmy',
-        //     'account' => 'abc',
-        //     'password' => '321',
-        //     'usr_email' => '11222255eric@gmail.com'
-        // ];
-        //$model->save($data);
         if(!isset($_SESSION['LOGIN'])){
             $_SESSION['LOGIN'] = 0;
             }
@@ -139,8 +131,7 @@ class LoginController extends BaseController
                  echo '<p> </p><p> </p><a href="./chptcha_index.php">Error輸入錯誤,將於一秒後跳轉(按此也可返回)</a>';
                  echo '<meta http-equiv="refresh" content="1; url=/LoginController/captcha_index">';
              }
-        
-        }
+            }
     }
 }
-?>
+

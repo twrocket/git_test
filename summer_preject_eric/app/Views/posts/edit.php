@@ -2,9 +2,9 @@
 
 <?= $this->section('post_content') ?>
 	<h3>編輯頁面</h3>
-    <h4 style="color: red">尚未完成-要儲存至資料庫</h4>
-    <form action="#" enctype="mutipart/form-data" method="POST">
-    	<label for="title">標題<br>
+    <form action="/PostController/update" enctype="mutipart/form-data" method="POST">
+    	<input type="text" name="id" value="<?php echo $posts['id'] ?>" style="display: none">
+		<label for="title">標題<br>
 			<input type="text" name="title" placeholder="請輸入標題" required value="<?php echo $posts['title'] ?>">
 		</label><br>
     	<label for="website">發布到哪個網頁<br>
@@ -27,7 +27,7 @@
         	</select>
         </label><br>
 		<label for="content">內文<br>
-			<textarea name="content" placeholder="請輸入內文" required><?php echo $posts['content'] ?></textarea>
+			<textarea id ="editor1" name="content" placeholder="請輸入內文" required><?php echo $posts['content'] ?></textarea>
 		</label><br>
 		<label for="file">上傳檔案<br>
 			<input type="file" name="file" multiple>
@@ -38,10 +38,13 @@
 		<label for="dateEnd">公告下架日期<br>
 			<input type="date" name="dateEnd" required value="<?php echo $posts['dateEnd'] ?>">
 		</label><br>
-		<input type="date" name="update" value="<?php echo date("Y-m-d"); ?>" style="display: none">
+		<input type="datetime" name="update" value="<?php date_default_timezone_set("Asia/Taipei"); echo date("Y-m-d H:i:s") ?>" style="display: none">
 		<div>
 			<button type="submit" name="status" value="草稿">儲存草稿</button>
 			<button type="submit" name="status" value="發布">發布</button>
 		</div>
     </form>
+	<script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
 <?= $this->endSection() ?>

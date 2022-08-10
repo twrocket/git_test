@@ -25,8 +25,8 @@
 				<option value="其他事項">其他事項</option>
         	</select>
         </label><br>
-		<label for="content">內文<br>
-			<textarea name="content" placeholder="請輸入內文" required></textarea>
+		<label for="content" style = "margin:auto; width:40%; max-width:600px;">內文<br>
+			<textarea id ="editor1" name="content" placeholder="請輸入內文" required></textarea>	
 		</label><br>
 		<label for="file">上傳檔案<br>
 			<input type="file" name="file" multiple>
@@ -47,4 +47,7 @@
 			<button type="submit" name="status" value="發布">發布</button>
 		</div>
     </form>
+	<script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
 <?= $this->endSection() ?>

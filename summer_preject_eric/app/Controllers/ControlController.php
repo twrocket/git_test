@@ -12,7 +12,7 @@ class ControlController extends BaseController
     }
     public function alert()
     {
-        ShowAlert("notice");
+        return view('controlsystems/index2');
     }
     
 }
