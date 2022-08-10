@@ -1,15 +1,4 @@
-<?php 
-      date_default_timezone_set('Asia/Taipei');
-      $year_now = date("Ymd"); 
-      echo "$year_now <br>";
 
-      $year_set = 20220408;  
-      echo "$year_set <br>";
-      $time_now = date("His");
-      echo "$time_now <br>";
-      $time_set = 220405;
-      echo "$time_set <br>";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +11,10 @@
 </head>
 <body>
 
-<input type="button" value="test, click me" onclick = "ShowAlert(<?php echo $year_now;?>,<?php echo $year_set;?>,<?php echo $time_now;?>,<?php echo $time_set;?>,'notice')">
+<input type="button" value="test, click me" onclick = "ShowAlert('2016-11-25T12:30:00','notice')">
+<input type="button" value="test, click me" onclick = "/ControlController/alert">
+<a href ="/ControlController/alert"> 連結</a>
+
 </body>
 </html>
 <?php
