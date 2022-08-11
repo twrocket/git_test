@@ -19,12 +19,10 @@
 	<a href="#">管理者登入</a> -->
 	<!-- if user login -->
 	<?php session_start(); ?>
-	<span><?php echo ''.$_SESSION['name'].'' ?></span>
-	<?php
-		echo '<form action="/LoginController/sign_out">';
-		echo '<div align="center"><button type="submit">登出</button></div>';
-		echo '</form>';
-	?>
+	<span><?php echo ''.$_SESSION['name'].'' ?>
+	<a href="http://localhost:8080/LoginController/sign_out" class="elements">
+		<span>登出</span>
+   		</a>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
