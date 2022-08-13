@@ -63,6 +63,11 @@ class LoginController extends BaseController
         $email->setMessage($message);//your message here
         $email->send();
     }
+    public function sign_out() //這個func測試用
+    {
+        $_SESSION['LOGIN'] = 0;
+        return view('front_page');
+    }
     public function captcha_index() //這個func測試用
     {
         return view('logins/captcha_index');

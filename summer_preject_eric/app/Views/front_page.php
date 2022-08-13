@@ -12,11 +12,14 @@
     <?php
     
     if ($_SESSION['LOGIN'] == 0){
-        echo '<div align="center"><a href="/LoginController/index"><button type="button">登錄</button></a></div>';
+        echo '<form action="/LoginController/index">';
+        echo '<div align="center"><button type="submit">登錄1</button></div>';
+        echo '</form>';
     }
     else{
-        $_SESSION['LOGIN'] = 0;
-        echo '<div align="center"><a href="/Home/index"><button type="button">登出</button></a></div>';
+        echo '<form action="/LoginController/sign_out">';
+        echo '<div align="center"><button type="submit">登出</button></div>';
+        echo '</form>';
     }
     ?>   
   <div align="center">

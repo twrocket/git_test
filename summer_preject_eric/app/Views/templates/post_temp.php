@@ -18,8 +18,11 @@
 	<!-- <span>未登入</span>
 	<a href="#">管理者登入</a> -->
 	<!-- if user login -->
-	<span>使用者</span>
-	<a href="#">登出</a>
+	<?php session_start(); ?>
+	<span><?php echo ''.$_SESSION['name'].'' ?>
+	<a href="http://localhost:8080/LoginController/sign_out" class="elements">
+		<span>登出</span>
+   		</a>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>
