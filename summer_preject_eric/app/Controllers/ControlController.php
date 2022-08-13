@@ -14,6 +14,10 @@ class ControlController extends BaseController
     {
         return view('controlsystems/index2');
     }
+    public function upload()
+    {
+        return view('controlsystems/upload.php');
+    }
     
 }
 ?>

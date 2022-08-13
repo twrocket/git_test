@@ -1,11 +1,8 @@
-<?php
-// define PDO - tell about the database file
-$database = new SQLite3("news.db");
-$dat = new Post();
-if($database)
-{
-  echo "connected";
-}
-//write sql
+<html><body>
 
-// run sql
+<form method="post" enctype="multipart/form-data" action="/ControlController/upload">
+  <input type="file" name="my_file">
+  <input type="submit" value="Upload">
+</form>
+
+</body></html>
