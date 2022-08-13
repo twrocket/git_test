@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\Post;
 use App\Controllers\BaseController;
 
 class ControlController extends BaseController
