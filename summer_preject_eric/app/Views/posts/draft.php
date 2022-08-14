@@ -25,7 +25,7 @@
 					
 					';
 				}
-				else if($today>=$start&& $today<=$var_end)
+				else if($today>=$var_start&& $today<=$var_end)
 				{
 					echo'
 					<span>上架中</span>
