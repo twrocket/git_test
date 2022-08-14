@@ -46,9 +46,10 @@ class LoginController extends BaseController
         ];
         foreach($logins as $logins_item){
             foreach($logins_item as $login){
+                    //逐一判斷資料是否正確
                     if($login['account']==$_POST['account']&&$login['password']==$_POST['password']){
                             $_SESSION['LOGIN'] = 1; //成功登入，$_SESSION['LOGIN']設定1
-                            $_SESSION['name'] = $login['name'];
+                            $_SESSION['name'] = $login['name']; //使用者名字
                             echo '<script>alert("hello '.$_SESSION['name'].'")</script>';
                             return view('front_page');
                     }
