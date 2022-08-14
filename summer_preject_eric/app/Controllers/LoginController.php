@@ -7,6 +7,13 @@ use App\Models\Login;
 session_start();
 class LoginController extends BaseController
 {
+    public function test()
+    {
+        function echo_test(){
+            echo 'test';
+        }
+        echo_test();
+    }
     public function index() //帳號密碼首頁
     {
         if(!isset($_SESSION['LOGIN'])){
