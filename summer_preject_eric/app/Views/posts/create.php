@@ -2,7 +2,7 @@
 
 <?= $this->section('post_content') ?>
 	<h3>發布公告</h3>
-    <form action="/PostController/create"enctype="multipart/form-data" method="POST">
+    <form action="/PostController/store"enctype="multipart/form-data" method="POST">
     	<label for="title">標題<br>
 			<input type="text" name="title" placeholder="請輸入標題" required>
 		</label><br>
