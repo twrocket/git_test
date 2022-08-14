@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>登入頁面</title>
+        <title>忘記密碼</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/login.css">
     </head>
     <body>
         <div style="text-align: center"> 
-                <h1>登入頁面</h1>
+                <h1>忘記密碼</h1>
             <form action="/LoginController/check" enctype="mutipart/form-data" method="POST"> 
-                <h2>帳號: </h2>
+                <h2>輸入帳號: </h2>
                 <input name="account" type="text">
                 <br>
-                <h2>密碼: </h2>
-                <input name="password" type="text">
+                <h2>輸入你的email: </h2>
+                <input name="usr_email" type="text">
                 <br>
                 <p>請輸入下圖字樣：</p>
                 <p><img id="imgcode" src="<?= base_url('LoginController/captcha')?>" onclick="refresh_code();"><br />
