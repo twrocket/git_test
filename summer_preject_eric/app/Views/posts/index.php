@@ -42,6 +42,7 @@
 					echo'
 					<span>已下架</span>
 					<a href="/PostController/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a>
+					<br>
 					
 					';
 				}
