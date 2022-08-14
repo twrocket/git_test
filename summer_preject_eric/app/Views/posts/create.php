@@ -2,7 +2,7 @@
 
 <?= $this->section('post_content') ?>
 	<h3>發布公告</h3>
-    <form action="/PostController/store" enctype="mutipart/form-data" method="POST">
+    <form action="/PostController/create"enctype="multipart/form-data" method="POST">
     	<label for="title">標題<br>
 			<input type="text" name="title" placeholder="請輸入標題" required>
 		</label><br>
@@ -29,7 +29,7 @@
 			<textarea id ="editor1" name="content" placeholder="請輸入內文" required></textarea>	
 		</label><br>
 		<label for="file">上傳檔案<br>
-			<input type="file" name="file" multiple>
+			<input type="file" name="file"  multiple><!--裝飾上傳檔案的部分 都是將input忽略 在用新的去美化 -->			
 		</label><br>
 		<label for="dateStart">公告發布日期<br>
 			<input type="date" name="dateStart" required>
@@ -49,5 +49,13 @@
     </form>
 	<script>
         CKEDITOR.replace( 'editor1' );
+
+		const fileUploader = document.querySelector('#file-uploader');
+		fileUploader.addEventListener('change', (e) => {
+  e.target.files; // FileList object
+  e.target.files[0]; // File Object (Special Blob)  
+});
+
+
     </script>
 <?= $this->endSection() ?>

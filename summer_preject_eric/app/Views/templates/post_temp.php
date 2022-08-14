@@ -19,7 +19,7 @@
 	<a href="#">管理者登入</a> -->
 	<!-- if user login -->
 	<?php session_start(); ?>
-	<span><?php echo ''.$_SESSION['name'].'' ?>
+	<span><?php //echo ''.$_SESSION['name'].'' ?> 
 	<a href="http://localhost:8080/LoginController/sign_out" class="elements">
 		<span>登出</span>
    		</a>
