@@ -1,14 +1,12 @@
-function ShowAlert(time_set,text)
+function ShowAlert(time_set)
 {   
     
     var time_now = new Date();
     var time_set = new Date(time_set);   
     
-    if (time_now >= time_set) {
-        alert('讀取成功');
+    if (time_now >= time_set) {       
         return 1;
-    } else {
-        alert('讀取失敗');
+    } else {        
         return 0;
     }
    
