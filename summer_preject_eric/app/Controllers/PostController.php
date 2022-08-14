@@ -82,7 +82,7 @@ class PostController extends BaseController
     public function update()
     {
         $model = new Post();
-
+        
         $data_id = [
             'id' => $this->request->getVar('id')
         ];
