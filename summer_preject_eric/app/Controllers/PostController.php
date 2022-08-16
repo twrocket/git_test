@@ -4,11 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Post;
-
+session_start();
 class PostController extends BaseController
 {
     public function index()
     {
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
         $model = new Post();
 
         $data = [

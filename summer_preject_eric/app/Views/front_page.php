@@ -26,7 +26,8 @@
     <a href="#"><button type="button">大學繁星推薦</button></a><br>
     <a href="#"><button type="button">大學個人申請</button></a><br>
     <a href="#"><button type="button">高中繁星推薦</button></a><br>
-    <a href="#"><button type="button">高中個人申請</button></a><br>   
+    <a href="#"><button type="button">高中個人申請</button></a><br>
+    <a href="http://localhost:8080/PostController/index"><button type="button">管理頁面</button></a><br> 
   </div>       
 </body>
 </html>

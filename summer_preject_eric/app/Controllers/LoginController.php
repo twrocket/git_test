@@ -5,9 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Login;
 session_start();
-if(!isset($_SESSION['LOGIN'])){
-    $_SESSION['LOGIN'] = 0;
-}
 if(!isset($_SESSION['check_usr'])){ //沒有定義，設為零
     $_SESSION['check_usr'] = 0;
 }
@@ -15,7 +12,9 @@ class LoginController extends BaseController
 {
     public function index() //帳號密碼首頁
     {
-        echo $_SESSION['LOGIN'];
+        if(!isset($_SESSION['LOGIN'])){
+            $_SESSION['LOGIN'] = 0;
+        }
         return view('logins/index');
     }
     public function check()
@@ -23,7 +22,7 @@ class LoginController extends BaseController
         if(!isset($_SESSION['LOGIN'])){ //沒有定義，設為零
             $_SESSION['LOGIN'] = 0;
         }
-        if(!isset($_POST['account'])){
+        if(!isset($_POST['account'])){ //required
             echo '<script>alert("尚未登入")</script>';
             return view('logins/index');
         }
@@ -154,13 +153,12 @@ class LoginController extends BaseController
     }
     public function captcha()
     {
-        if(!isset($_SESSION)){ session_start(); } //檢查SESSION是否啟動
         $_SESSION['check_word'] = ''; //設置存放檢查碼的SESSION
         //設置定義為圖片
         header("Content-type: image/PNG");
-        $nums=5; //生成驗證碼個數
-        $width=$nums*25;  //圖片寬
-        $high=20;  //圖片高  
+        $nums = 5; //生成驗證碼個數
+        $width = $nums*25;  //圖片寬
+        $high = 20;  //圖片高  
         //去除了數字0和1 字母小寫O和L，為了避免辨識不清楚
         $str = "23456789abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMOPQRSTUBWXYZ";
         $code = '';
