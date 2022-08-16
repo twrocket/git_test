@@ -132,6 +132,7 @@ class LoginController extends BaseController
             'password' => $_POST['new_password']
         ];
         $model->update($_SESSION['id'], $data);
+        return view('logins/index');
     }
     public function sign_out() 
     {
