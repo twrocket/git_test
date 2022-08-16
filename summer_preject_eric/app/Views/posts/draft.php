@@ -1,7 +1,9 @@
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('post_content') ?>
+	
 	<h3>草稿</h3>
+	
 	<?php
 	if(!empty($posts)) {
 		usort($posts, 'sort_by_update');
@@ -41,6 +43,8 @@
 					<a href="/PostController/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a>
 					<br>
 					';
+					
+					
 				}
 			}
 		}
