@@ -8,15 +8,11 @@ session_start();
 if(!isset($_SESSION['LOGIN'])){
     $_SESSION['LOGIN'] = 0;
 }
+if(!isset($_SESSION['check_usr'])){ //沒有定義，設為零
+    $_SESSION['check_usr'] = 0;
+}
 class LoginController extends BaseController
 {
-    public function test()
-    {
-        function echo_test(){
-            echo 'test';
-        }
-        echo_test();
-    }
     public function index() //帳號密碼首頁
     {
         echo $_SESSION['LOGIN'];
@@ -56,7 +52,7 @@ class LoginController extends BaseController
             }
         }
         if($_SESSION['LOGIN'] == 0){
-            echo '<script>alert("incorrect username or password")</script>';
+            echo '<script>alert("incorrect account or password")</script>';
             return view('logins/index');
         }
     }
@@ -68,9 +64,6 @@ class LoginController extends BaseController
         return view('logins/forgot_password_index');
     }
     public function forgot_password_check(){
-        if(!isset($_SESSION['check_usr'])){ //沒有定義，設為零
-            $_SESSION['check_usr'] = 0;
-        }
         if(!isset($_POST['account'])){
             echo '<script>alert("尚未輸入帳號")</script>';
             return view('logins/forgot_password_index');
@@ -91,28 +84,60 @@ class LoginController extends BaseController
         foreach($logins as $logins_item){
             foreach($logins_item as $login){
                     if($login['account']==$_POST['account']&&$login['usr_email']==$_POST['usr_email']){
-                            $_SESSION['LOGIN'];
+                            $_SESSION['check_usr'] = 1;
+                            $str_check = "1234567890";
+                            $email_code = '';
+                            for ($i = 0; $i < 5; $i++) {
+                            $email_code .= $str_check[mt_rand(0, strlen($str_check)-1)];
+                            }
+                            $_SESSION['email_code'] = $email_code;
                             $_SESSION['name'] = $login['name'];
-                            $_SESSION['usr_email'] = $login['usr_email'];
-                            return view('email_check');
+                            $_SESSION['id'] = $login['id'];
+                            $message = $_SESSION['email_code'];
+                            $email = \Config\Services::email();
+                            $email->setFrom('liq71795@gmail.com', 'CI4認證碼');
+                            $email->setTo($login['usr_email']);
+                            $email->setSubject('你的認證碼是');
+                            $email->setMessage($message);//your message here
+                            $email->send();
+                            return view('logins/email_check.php');
                     }
             }
         }
-        if($_SESSION['LOGIN'] == 0){
-            echo '<script>alert("incorrect username or email")</script>';
-            return view('logins/index');
+        if($_SESSION['check_usr'] == 0){
+            echo '<script>alert("incorrect account or email")</script>';
+            return view('logins/forgot_password_index');
         }
-        $message = "you log in 徵選會系統";
-        $email = \Config\Services::email();
-        $email->setFrom('liq71795@gmail.com', 'Login  Notification');
-        $email->setTo('11222255eric@gmail.com');
-        $email->setSubject('hi');
-        $email->setMessage($message);//your message here
-        $email->send();
+    }
+    public function email_code_check()
+    {
+        if($_SESSION['check_usr'] == 0){
+            return view('logins/forgot_password_index');
+        }
+        else if(!isset($_SESSION['email_code'])){
+            return view('logins/forgot_password_index');
+        }
+        else if($_SESSION['email_code'] == $_POST['email_code']){
+            $_SESSION['password_update'] = 1;
+            return view('logins/reset_password');
+        }
+    }
+    public function password_update(){
+        if(!isset($_SESSION['password_update'])){
+            echo '<script>alert("尚未驗證")</script>';
+            return view('logins/forgot_password_index');
+        }
+        $model = new Login();
+        $data = [
+            'password' => $_POST['new_password']
+        ];
+        $model->update($_SESSION['id'], $data);
     }
     public function sign_out() 
     {
         $_SESSION['LOGIN'] = 0;
+        $_SESSION['name'] = '';
+        session_destroy();
         return view('front_page');
     }
     public function captcha_index() //這個func測試用

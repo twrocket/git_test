@@ -10,7 +10,7 @@
     <body>
         <div style="text-align: center"> 
                 <h1>忘記密碼</h1>
-            <form action="/LoginController/check" enctype="mutipart/form-data" method="POST"> 
+            <form action="/LoginController/forgot_password_check" enctype="mutipart/form-data" method="POST"> 
                 <h2>輸入帳號: </h2>
                 <input name="account" type="text">
                 <br>
@@ -21,7 +21,7 @@
                 <p><img id="imgcode" src="<?= base_url('LoginController/captcha')?>" onclick="refresh_code();"><br />
                 點擊圖片可以更換驗證碼
                 <input type="text" name="checkword" size="10" maxlength="10" /><br></p>
-                <button type="submit" name="SubmitButton"  class="button_color">login</button>
+                <button type="submit" name="SubmitButton"  class="button_color">確認</button>
             </form>
         <div>
     </body>

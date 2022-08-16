@@ -28,7 +28,7 @@
 					
 					';
 				}
-				else if($today>=$start&& $today<=$var_end)
+				else if($today>=$var_start&& $today<=$var_end)
 				{
 					echo'
 					<span>上架中</span>
@@ -42,6 +42,7 @@
 					echo'
 					<span>已下架</span>
 					<a href="/PostController/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a>
+					<br>
 					
 					';
 				}
