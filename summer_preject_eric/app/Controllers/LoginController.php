@@ -35,7 +35,11 @@ class LoginController extends BaseController
                 return view('logins/index');
                 // echo '<meta http-equiv="refresh" content="1; url=/LoginController/index">';
             }
-       }
+        }
+        else{
+            echo '<script>alert("incorrect CAPTCHA")</script>'; //錯誤給予提示並返回
+            return view('logins/index');
+        }
         $model = new Login();
         $logins = [                         //抓全部資料
             'logins' => $model->findAll()
@@ -74,8 +78,11 @@ class LoginController extends BaseController
             }else{
                 echo '<script>alert("incorrect CAPTCHA")</script>'; //錯誤給予提示並返回
                 return view('logins/forgot_password_index');
-                // echo '<meta http-equiv="refresh" content="1; url=/LoginController/index">';
             }
+       }
+       else{
+            echo '<script>alert("incorrect CAPTCHA")</script>'; //錯誤給予提示並返回
+            return view('logins/forgot_password_index');
        }
         $model = new Login();
         $logins = [                         //抓全部資料
