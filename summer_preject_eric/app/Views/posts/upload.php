@@ -2,7 +2,7 @@
 
 <?= $this->section('post_content') ?>
 	
-	<h3>草稿</h3>
+	<h3>上架中</h3>
 	
 	<?php
 	use App\Models\Post;
@@ -35,8 +35,8 @@
 
 	function sort_by_update($a, $b)
 	{
-		if($a['update'] == $b['update']) return 0;
-		return ($a['update'] > $b['update']) ? -1 : 1;
+		if($a['dateStart'] == $b['dateStart']) return 0;
+		return ($a['dateStart'] > $b['dateStart']) ? -1 : 1;
 	}
 	?>
 <?= $this->endSection() ?>

@@ -2,7 +2,7 @@
 
 <?= $this->section('post_content') ?>
 	
-	<h3>草稿</h3>
+	<h3>已下架</h3>
 	
 	<?php
 	use App\Models\Post;
