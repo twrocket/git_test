@@ -59,6 +59,11 @@ class Post extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
                 'null' => True,
+            ],
+            'status_time' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
             ]
         ]);
         $this->forge->addKey('id', True);

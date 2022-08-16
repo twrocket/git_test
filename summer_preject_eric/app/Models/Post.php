@@ -23,7 +23,8 @@ class Post extends Model
         'dateStart',
         'dateEnd',
         'update',
-        'status'
+        'status',
+        'status_time'
     ];
 
     // Dates

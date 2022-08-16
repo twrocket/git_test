@@ -73,7 +73,7 @@ class LoginController extends BaseController
                  $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
             }else{
                 echo '<script>alert("incorrect CAPTCHA")</script>'; //錯誤給予提示並返回
-                return view('logins/index');
+                return view('logins/forgot_password_index');
                 // echo '<meta http-equiv="refresh" content="1; url=/LoginController/index">';
             }
        }

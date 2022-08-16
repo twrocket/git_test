@@ -14,18 +14,8 @@
                 <h2>輸入mail認證碼: </h2>
                 <input name="email_code" type="text">
                 <br>
-                <p>請輸入下圖字樣：</p>
-                <p><img id="imgcode" src="<?= base_url('LoginController/captcha')?>" onclick="refresh_code();"><br />
-                點擊圖片可以更換驗證碼
-                <input type="text" name="checkword" size="10" maxlength="10" /><br></p>
                 <button type="submit" name="SubmitButton"  class="button_color">確認</button>
             </form>
         <div>
     </body>
 </html>
-<script type ="text/javascript">
-        function refresh_code(){ 
-            var img = document.getElementById("imgcode").src="<?= base_url('LoginController/captcha')?>";
-            img.src = "imgcode?rnd" + Math.random();
-        } 
-</script>
