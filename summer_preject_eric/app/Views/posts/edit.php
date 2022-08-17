@@ -1,6 +1,11 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('header') ?>
+    <title>大學徵選委員會網頁-編輯頁面</title>
+	<script src="/Javascript/ckeditor/ckeditor.js"></script>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
 	<h3>編輯頁面</h3>
     <form action="/PostController/update" enctype="mutipart/form-data" method="POST">
     	<input type="text" name="id" value="<?php echo $posts['id'] ?>" style="display: none">
@@ -44,6 +49,9 @@
 			<button type="submit" name="status" value="發布">發布</button>
 		</div>
     </form>
+<?= $this->endSection() ?>
+
+<?= $this->section('body_script') ?>
 	<script>
         CKEDITOR.replace( 'editor1' );
     </script>

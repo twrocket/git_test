@@ -1,9 +1,11 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('header') ?>
+    <title>大學徵選委員會網頁-公告管理頁面</title>
 	<script type="text/javascript" src="/Javascript/alert.js"></script>
+<?= $this->endSection() ?>
 
-
+<?= $this->section('content') ?>
 	<h3>已發布公告</h3>
 	<?php
 	if(!empty($posts)) {
@@ -28,7 +30,7 @@
 					
 					';
 				}
-				else if($today>=$start&& $today<=$var_end)
+				else if($today>=$var_start&& $today<=$var_end)
 				{
 					echo'
 					<span>上架中</span>
@@ -44,13 +46,7 @@
 					<a href="/PostController/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a>
 					
 					';
-				}
-				
-					
-					
-				
-
-					
+				}	
 			}
 		}
 	}

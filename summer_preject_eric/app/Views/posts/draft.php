@@ -1,6 +1,10 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('header') ?>
+    <title>大學徵選委員會網頁-草稿</title>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
 	<h3>草稿</h3>
 	<?php
 	if(!empty($posts)) {
