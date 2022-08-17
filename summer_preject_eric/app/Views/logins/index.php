@@ -12,15 +12,15 @@
                 <h1>登入頁面</h1>
             <form action="/LoginController/check" enctype="mutipart/form-data" method="POST"> 
                 <h2>帳號: </h2>
-                <input name="account" type="text">
+                <input name="account" type="text" required="true">
                 <br>
                 <h2>密碼: </h2>
-                <input name="password" type="text">
+                <input name="password" type="password" required="true">
                 <br>
                 <p>請輸入下圖字樣：</p>
                 <p><img id="imgcode" src="<?= base_url('LoginController/captcha')?>" onclick="refresh_code();"><br />
                 點擊圖片可以更換驗證碼
-                <input type="text" name="checkword" size="10" maxlength="10" /><br></p>
+                <input type="text" name="checkword" required="true" size="10" maxlength="10" /><br></p>
                 <button type="submit" name="SubmitButton"  class="btn btn-primary">登錄</button>
                 <button type="button" class="btn btn-outline-secondary"><a href="http://localhost:8080/LoginController/forgot_password_index" class="elements">忘記密碼</a></button>
             </form>

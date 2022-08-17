@@ -5,26 +5,20 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Login;
 session_start();
-if(!isset($_SESSION['check_usr'])){ //沒有定義，設為零
-    $_SESSION['check_usr'] = 0;
-}
 class LoginController extends BaseController
 {
     public function index() //帳號密碼首頁
     {
         if(!isset($_SESSION['LOGIN'])){
+            echo "login沒定義";
             $_SESSION['LOGIN'] = 0;
         }
         return view('logins/index');
     }
     public function check()
     {
-        if(!isset($_SESSION['LOGIN'])){ //沒有定義，設為零
-            $_SESSION['LOGIN'] = 0;
-        }
-        if(!isset($_POST['account'])){ //required
-            echo '<script>alert("尚未登入")</script>';
-            return view('logins/index');
+        if(!isset($_SESSION['LOGIN'])){ //沒有定義，返回帳號密碼首頁
+            return redirect("LoginController");
         }
         if((!empty($_SESSION['check_word'])) && (!empty($_POST['checkword']))){  //判斷驗證碼是否為空   
             if($_SESSION['check_word'] == $_POST['checkword']){
@@ -66,11 +60,8 @@ class LoginController extends BaseController
             }
         return view('logins/forgot_password_index');
     }
-    public function forgot_password_check(){
-        if(!isset($_POST['account'])){
-            echo '<script>alert("尚未輸入帳號")</script>';
-            return view('logins/forgot_password_index');
-        }
+    public function forgot_password_check()
+    {
         if((!empty($_SESSION['check_word'])) && (!empty($_POST['checkword']))){  //判斷驗證碼是否為空   
             if($_SESSION['check_word'] == $_POST['checkword']){
                  $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
@@ -117,14 +108,13 @@ class LoginController extends BaseController
     }
     public function email_code_check()
     {
-        if($_SESSION['check_usr'] == 0){
-            return view('logins/forgot_password_index');
-        }
-        else if(!isset($_SESSION['email_code'])){
-            return view('logins/forgot_password_index');
+        //如果沒有定義，返回忘記密碼頁面
+        if(!isset($_SESSION['check_usr'])||($_SESSION['check_usr'] == 0)||!isset($_SESSION['email_code'])){
+            return redirect("LoginController/forgot_password_index");
         }
         else if($_SESSION['email_code'] == $_POST['email_code']){
             $_SESSION['password_update'] = 1;
+            $_SESSION['email_code'] = ''; //清除mail驗證碼
             return view('logins/reset_password');
         }
     }
@@ -142,14 +132,10 @@ class LoginController extends BaseController
     }
     public function sign_out() 
     {
-        $_SESSION['LOGIN'] = 0;
-        $_SESSION['name'] = '';
+        $_SESSION['LOGIN'] = 0; //登出設0
+        $_SESSION['name'] = ''; //清除使用者名稱
         session_destroy();
         return view('front_page');
-    }
-    public function captcha_index() //這個func測試用
-    {
-        return view('logins/captcha_index');
     }
     public function captcha()
     {
@@ -191,7 +177,6 @@ class LoginController extends BaseController
         imagepng($image);
         imagedestroy($image);  //少這行畫面會全黑
     }
-    
     public function checkcode() //這個func測試用
     {
         if(!isset($_SESSION)){

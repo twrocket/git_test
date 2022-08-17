@@ -12,10 +12,10 @@
                 <h1>忘記密碼</h1>
             <form action="/LoginController/forgot_password_check" enctype="mutipart/form-data" method="POST"> 
                 <h2>輸入帳號: </h2>
-                <input name="account" type="text">
+                <input name="account" type="text" required="true">
                 <br>
                 <h2>輸入你的email: </h2>
-                <input name="usr_email" type="text">
+                <input name="usr_email"  type="text" required="true">
                 <br>
                 <p>請輸入下圖字樣：</p>
                 <p><img id="imgcode" src="<?= base_url('LoginController/captcha')?>" onclick="refresh_code();"><br />

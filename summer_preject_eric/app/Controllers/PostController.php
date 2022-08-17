@@ -9,9 +9,9 @@ class PostController extends BaseController
 {
     public function index()
     {
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
-        }
+        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+        //     return redirect("LoginController");
+        // }
         $model = new Post();
 
         $data = [

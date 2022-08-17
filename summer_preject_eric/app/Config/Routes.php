@@ -37,6 +37,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('LoginController', 'LoginController::index');
+$routes->get('LoginController/forgot_password_index', 'LoginController::forgot_password_index');
 $routes->get('PostController', 'PostController::index');
 /*
  * --------------------------------------------------------------------
