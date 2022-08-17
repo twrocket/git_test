@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Post;
 
 use App\Controllers\BaseController;
+session_start();
 
 class UnivStar extends BaseController
 {

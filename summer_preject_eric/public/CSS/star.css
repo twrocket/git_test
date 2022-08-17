@@ -12,3 +12,7 @@ footer {
     color: white;
     background-color: black;
 }
+
+a:hover {
+    background-color: yellow;
+}

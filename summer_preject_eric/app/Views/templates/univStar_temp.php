@@ -11,7 +11,7 @@
         <div class="col-8 text-start">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home">回首頁</a>
+                    <a class="nav-link" style="color: red" href="/home">回首頁</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/UnivStar/index">大學繁星</a>
@@ -29,11 +29,10 @@
         </div>
         <div class="col-4 text-end">
             <?php
-            session_start();
             if($_SESSION['LOGIN'] == 0) {
                 echo '
                     <span>訪客</span>
-                    <a href="#">
+                    <a href="/LoginController/index">
                         <button type="button" class="btn btn-sm btn-light">管理者登入</button>
                     </a>
                 ';    
@@ -41,7 +40,7 @@
             else {
                 echo '
                     <span>'.$_SESSION['name'].'</span>
-                    <a href="#">
+                    <a href="/LoginController/sign_out">
                         <button type="button" class="btn btn-sm btn-light">登出</button>
                     </a>
                 ';    
