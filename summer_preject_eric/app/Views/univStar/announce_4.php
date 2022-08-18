@@ -1,11 +1,16 @@
-<?= $this->extend('templates\univStar_temp') ?>
+<?= $this->extend('templates\star_temp') ?>
 
 <?= $this->section('head_info') ?>
     <title>大學甄選入學委員會-會議簡報</title>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <h1>會議簡報</h1>
+	<div class="pt-2 pb-3 mx-lg-5 mx-md-3">
+        <div class="container d-flex flex-wrap justify-content-start">
+            <span class="fs-3">會議簡報</span>
+        </div>
+    </div>
+	<div class="border-top"></div>
     <?php
 	if(!empty($posts)) {
 		usort($posts, 'sort_by_update');

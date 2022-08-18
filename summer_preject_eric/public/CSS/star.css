@@ -1,18 +1,49 @@
 header {
-    min-height: 20vh;
+    min-height: 25vh;
 }
 
 main>div {
-    min-height: 75vh;
-    /* background-color: yellow; */
+    min-height: 70vh;
 }
 
 footer {
     min-height: 5vh;
-    color: white;
-    background-color: black;
+    color: #e7ecef;
+    background-color: #274c77;
 }
 
 a:hover {
-    background-color: yellow;
+    background-color: #8b8c89;
+}
+
+#navbar_top {
+    background-color: #274c77;
+}
+
+#navbar_top>div>ul>li>a {
+    color: #e7ecef;
+}
+
+#navbar_top>div>ul>li>span {
+    color: #e7ecef;
+}   
+
+#title {
+    background-color: #e7ecef;
+}
+
+#navbar_bottom {
+    background-color: #6096ba;
+}
+
+#sidebar {
+    background-color: #a3cef1;
+}
+
+.dropdownList {
+    background-color: #6096ba;
+}
+
+#content {
+    background-color: #e7ecef;
 }
