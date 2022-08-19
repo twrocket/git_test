@@ -50,13 +50,13 @@
             </div>
         </nav>
         <div class="container">
-            <div class="row align-items-center" style="margin-top:15vh; text-align:center; padding:-100vh;">
+            <div class="row align-items-center" style="margin-top:20vh; text-align:center; padding:-100vh;">
                 <div class="col-md-6">
                     <h1 style="font-size:5em;">111</h1>
                     <p class="p-111">邁向大學之路 開創成功未來</p><a href="https://rdrc.mnd.gov.tw/"><button class="btn btn-light btn-lg action-button" type="button">了解更多</button></a>
                 </div>
                 <div class="col-md-6">
-                    <div class="device pic">
+                    <div class="device pic" >
                         <!-- https://www.webdesigns.com.tw/css-zoom_in.asp -->
                         <img src="laptop2.png">                   
                     </div>
@@ -65,7 +65,7 @@
                 <div class="clearfix hidden-xs"></div>
             </div>
             <div class="row align-items-center" style="margin: 5vh;">
-                <div class="col-sm-6" >
+                <div class="col-sm-6 mb-4 mb-sm-0" >
                     <div class="card action-card">
                         <div class="card-body" style="fill-opacity: 5vh;">
                         <h5 class="card-title">繁星資格</h5>
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6" >
+                <div class="col-sm-6 mb-4 mb-sm-0" >
                     <div class="card action-card" >
                         <div class="card-body" style="fill-opacity: 5vh;">
                         <h5 class="card-title">申請流程</h5>
