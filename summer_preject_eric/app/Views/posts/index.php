@@ -1,9 +1,11 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('header') ?>
+    <title>大學徵選委員會網頁-公告管理頁面</title>
 	<script type="text/javascript" src="/Javascript/alert.js"></script>
+<?= $this->endSection() ?>
 
-
+<?= $this->section('content') ?>
 	<h3>已發布公告</h3>
 	<?php
 	if(!empty($posts)) {
@@ -45,13 +47,7 @@
 					<br>
 					
 					';
-				}
-				
-					
-					
-				
-
-					
+				}	
 			}
 		}
 	}
