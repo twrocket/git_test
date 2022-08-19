@@ -13,7 +13,7 @@ footer {
 }
 
 a:hover {
-    background-color: #8b8c89;
+    background-color: #8b8c89a0;
 }
 
 #navbar_top {
@@ -30,7 +30,6 @@ a:hover {
 
 #title {
     background-color: #6096ba;
-    /* background:linear-gradient(0deg, #a3cef1, #6096ba); */
 }
 
 #title>div {
@@ -39,19 +38,26 @@ a:hover {
 
 #navbar_bottom {
     background-color: #6096ba;
-    /* background:linear-gradient(180deg, #a3cef1, #6096ba); */
 }
 
 #navbar_bottom>ul>li>a {
     color: #e7ecef;
 }
 
-#sidebar {
-    background: linear-gradient(90deg, #a3cef1 98%, #e7ecef 100%);
+@media screen and (min-width: 768px) {
+    #sidebar {
+        background: linear-gradient(90deg, #a3cef1 98%, #e7ecef 100%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        background: linear-gradient(180deg, #a3cef1 98%, #e7ecef 100%);
+    }
 }
 
 .dropdownList {
-    background-color: #e7ecef;
+    background-color: #e7ecefa0;
 }
 
 #content {
