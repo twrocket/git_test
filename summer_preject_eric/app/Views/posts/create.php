@@ -1,6 +1,11 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('header') ?>
+    <title>大學徵選委員會網頁-發布公告</title>
+	<script src="/Javascript/ckeditor/ckeditor.js"></script>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
 	<h3>發布公告</h3>
     <form action="/PostController/store"enctype="multipart/form-data" method="POST">
     	<label for="title">標題<br>
@@ -47,15 +52,15 @@
 			<button type="submit" name="status" value="發布">發布</button>
 		</div>
     </form>
+<?= $this->endSection() ?>
+
+<?= $this->section('body_script') ?>
 	<script>
         CKEDITOR.replace( 'editor1' );
-
 		const fileUploader = document.querySelector('#file-uploader');
 		fileUploader.addEventListener('change', (e) => {
-  e.target.files; // FileList object
-  e.target.files[0]; // File Object (Special Blob)  
-});
-
-
+			e.target.files; // FileList object
+			e.target.files[0]; // File Object (Special Blob)  
+		});
     </script>
 <?= $this->endSection() ?>

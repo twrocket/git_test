@@ -1,0 +1,14 @@
+header {
+    min-height: 15vh;
+}
+
+main>div {
+    min-height: 80vh;
+    /* background-color: yellow; */
+}
+
+footer {
+    min-height: 5vh;
+    color: white;
+    background-color: black;
+}

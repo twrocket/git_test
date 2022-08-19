@@ -1,6 +1,10 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('header') ?>
+    <title>大學徵選委員會網頁-查看公告</title>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
     <h1><?php echo $posts['title'] ?></h1>
     <p>發布到<?php echo $posts['website'] ?></p>
     <p>類別 : <?php echo $posts['category'] ?></p>
