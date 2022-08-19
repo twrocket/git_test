@@ -1,0 +1,47 @@
+.header-blue {
+	background:linear-gradient(45deg, #3f6fc8, #3ed9bf);
+	background-color:#184e8e;
+	padding-bottom:80px;
+	font-family:'Source Sans Pro', sans-serif;
+	/* width:100vw;
+	height:100vh; */
+}
+img{
+	width:100%;
+	height:auto;
+}
+.pic{width:40vw; height:40vh;overflow:hidden;}
+.pic img{transform:scale(1,1);transition: all 1s ease-out;}
+.pic img:hover{transform:scale(1.11,1.11);}
+@media (max-width:800px) {
+	.device { display: none; }
+}
+h1{
+	-webkit-text-stroke: 1px black;
+	color: white;
+}
+.p-111{
+	color: rgb(255, 255, 255);
+}
+.action-button{
+	/* 圓弧 */
+	border-radius:40px;
+	background: transparent;
+	color: rgb(255, 255, 255);
+}
+.Login{
+	margin-right: 1vw;
+}
+.action-card{
+	/* 圓弧 */
+	border-radius:40px;
+}
+.action-button:hover{
+	background-color: aliceblue;
+}
+.action-card:hover{
+	transform:scale(1,1.1);
+	font-weight:bold;
+}
+
+  
