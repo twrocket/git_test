@@ -19,6 +19,17 @@ class UnivStar extends BaseController
         return view('univStar/index', $data);
     }
 
+    public function show($post_id)
+    {
+        $model = new Post();
+
+        $data = [
+            'posts' => $model->find($post_id)
+        ];
+
+        return view('univStar/show', $data);
+    }
+
     public function announce_1()
     {
         $model = new Post();

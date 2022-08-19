@@ -17,7 +17,7 @@ a:hover {
 }
 
 #navbar_top {
-    background-color: #274c77;
+    background-color: #6096ba;
 }
 
 #navbar_top>div>ul>li>a {
@@ -29,21 +29,31 @@ a:hover {
 }   
 
 #title {
+    background-color: #6096ba;
+    /* background:linear-gradient(0deg, #a3cef1, #6096ba); */
+}
+
+#title>div {
     background-color: #e7ecef;
 }
 
 #navbar_bottom {
     background-color: #6096ba;
+    /* background:linear-gradient(180deg, #a3cef1, #6096ba); */
+}
+
+#navbar_bottom>ul>li>a {
+    color: #e7ecef;
 }
 
 #sidebar {
-    background-color: #a3cef1;
+    background: linear-gradient(90deg, #a3cef1 98%, #e7ecef 100%);
 }
 
 .dropdownList {
-    background-color: #6096ba;
+    background-color: #e7ecef;
 }
 
 #content {
-    background-color: #e7ecef;
+    background-color: #a3cef180;
 }

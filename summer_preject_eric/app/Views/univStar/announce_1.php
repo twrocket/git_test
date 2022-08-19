@@ -14,19 +14,32 @@
     <?php
 	if(!empty($posts)) {
 		usort($posts, 'sort_by_update');
-		echo '<table class="table"><tbody>';
+		echo '
+			<table class="table">
+				<thead style="display: none">
+					<tr>
+						<th scope="col"></th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+		';
 		foreach($posts as $posts_item) {
-			if($posts_item['category'] == "簡章訊息事項") {
+			if($posts_item['website'] == "大學繁星" and $posts_item['status'] == "發布" and $posts_item['category'] == "簡章訊息事項") {
 				echo '
 					<tr>
 						<td>'.substr($posts_item['update'], 0, 10).'</td>
 						<td>'.$posts_item['category'].'</td>
-						<td><a href="/PostController/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a></td>
+						<td><a href="/UnivStar/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a></td>
 					</tr>
 				';
 			}
 		}
-		echo '</tbody></table>';
+		echo '
+				</tbody>
+			</table>
+		';
 	}
 
 	function sort_by_update($a, $b)

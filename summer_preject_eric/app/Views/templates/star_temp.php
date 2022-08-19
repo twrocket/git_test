@@ -7,7 +7,7 @@
 
 <?= $this->section('header') ?>
 <!-- 上側導覽列 -->
-    <nav id="navbar_top" class="py-2 border-bottom">
+    <nav id="navbar_top" class="py-2">
         <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
                 <li class="nav-item"><a href="/home" class="nav-link px-2 active" aria-current="page">回首頁</a></li>
@@ -36,9 +36,9 @@
     </nav>
  
 <!-- 標題 -->
-    <div id="title" class="py-3 mb-0 border-bottom">
+    <div id="title" class="pb-3 mb-0">
         <div class="container d-flex flex-wrap justify-content-center">
-            <div class="d-flex align-items-center mb-0 mb-lg-0 text-dark text-decoration-none">
+            <div class="d-flex align-items-center py-2 mb-0 mb-lg-0 text-dark text-decoration-none">
                 <img class="bi me-2" width="40" height="35" src="/img/cac.png">
                 <span class="fs-2">2022 大學繁星推薦</span>
                 <span class="fs-6 mx-3 d-none d-md-block">大學之位 為您預留</span>
@@ -49,14 +49,14 @@
     </div>
 
  <!-- 下側導覽列 -->
-    <nav id="navbar_bottom" class="py-2 border-bottom">
-            <ul class="nav d-flex flex-wrap justify-content-around">
-                <li class="nav-item"><a href="/UnivStar/query" class="nav-link link-dark px-auto">校系分則查詢</a></li>
-                <li class="nav-item"><a href="/UnivStar/online" class="nav-link link-dark px-auto">網路購買簡章</a></li>
-                <li class="nav-item"><a href="/UnivStar/freetelc" class="nav-link link-dark px-auto">聽障生免英聽檢定</a></li>
-                <li class="nav-item"><a href="/UnivStar/dispense" class="nav-link link-dark px-auto">錄取(篩選)結果查詢</a></li>
-                <li class="nav-item"><a href="/UnivStar/abandon" class="nav-link link-dark px-auto">網路聲明放棄</a></li>
-            </ul>
+    <nav id="navbar_bottom" class="py-2">
+        <ul class="nav d-flex flex-wrap justify-content-around">
+            <li class="nav-item"><a href="/UnivStar/query" class="nav-link px-auto">校系分則查詢</a></li>
+            <li class="nav-item"><a href="/UnivStar/online" class="nav-link px-auto">網路購買簡章</a></li>
+            <li class="nav-item"><a href="/UnivStar/freetelc" class="nav-link px-auto">聽障生免英聽檢定</a></li>
+            <li class="nav-item"><a href="/UnivStar/dispense" class="nav-link px-auto">錄取(篩選)結果查詢</a></li>
+            <li class="nav-item"><a href="/UnivStar/abandon" class="nav-link px-auto">網路聲明放棄</a></li>
+        </ul>
     </nav>
 <?= $this->endSection() ?>
 
@@ -164,7 +164,7 @@
 <!-- content 未定 -->
 
 <?= $this->section('footer') ?> 
-    <div class="py-2 mb-0 border-top">
+    <div class="py-2 mb-0">
         <div class="container d-flex flex-wrap justify-content-center">
             <span class="fs-6">2022 大學甄選入學委員會</span>
         </div>
