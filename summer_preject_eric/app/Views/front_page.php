@@ -41,10 +41,10 @@
                 </ul>
                 <?php
                 if ($_SESSION['LOGIN'] == 0){
-                    echo '<a class="btn btn-light action-button Login" role="button" href="#">登入</a>';
+                    echo '<a class="btn btn-light action-button Login" role="button" href="http://localhost:8080/LoginController/index">登入</a>';
                 }
                 else{
-                    echo '<a class="btn btn-light action-button Login" role="button" href="#">登出</a>';
+                    echo '<a class="btn btn-light action-button Login" role="button" href="http://localhost:8080/LoginController/sign_out">登出</a>';
                 }
                 ?> 
             </div>
