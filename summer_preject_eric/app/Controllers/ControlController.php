@@ -12,7 +12,7 @@ class ControlController extends BaseController
     }
     public function alert()
     {
-        return view('controlsystems/index2');
+        return view('controlsystems/find_string');
     }
     public function upload()
     {
