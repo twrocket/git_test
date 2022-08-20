@@ -32,7 +32,7 @@
 					<tbody>
 				';
 				foreach($posts as $posts_item) {
-					if($posts_item['website'] == "大學繁星" and /*$posts_item['status_time'] != "已下架" and*/ $posts_item['status'] == "發布") {
+					if($posts_item['website'] == "大學繁星" and $posts_item['status_time'] != "已下架" and $posts_item['status'] == "發布") {
 						echo '
 							<tr>
 								<td>'.substr($posts_item['update'], 0, 10).'</td>

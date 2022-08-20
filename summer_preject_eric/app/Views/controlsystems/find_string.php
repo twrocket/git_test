@@ -4,6 +4,7 @@ function find_string($goal_string)
 {   $model = new Post();
 
     $posts = $model->findAll();         
+    $array = [];
           
   
     if(!empty($posts)) {            
@@ -16,15 +17,18 @@ function find_string($goal_string)
             
             if( $value_content!==false || $value_title!==false) 
             {
-                echo $posts_item['title'].'<br>'.$posts_item['content'];
+                array_push($array,$posts_item['id']);
+               // echo $posts_item['title'].'<br>'.$posts_item['content'];
             }
             else
             {
-                echo "no such content or title <br>";
+               // echo "no such content or title <br>";
             }
-                
+            
         }
     }
+    return $array;
 }
-find_string('test');
+//$test = find_string("test");
+//print_r($test);
 ?>
