@@ -11,6 +11,18 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<?php
+        include('..\app\Views\controlsystems\check.php');
+        check();    
+        
+        
+        if($posts["status_time"]=='已下架')
+        {         
+           header("Location:http://localhost:8080/");//
+           echo "<script> alert('fail') </script>"; 
+           exit;
+        }
+?>
     <div class="pt-2 pb-3 mx-lg-5 mx-md-3">
         <div class="container d-flex flex-wrap justify-content-start">
             <span class="fs-3">訊息公告 - <?php echo $posts['category'] ?></span>
@@ -19,6 +31,7 @@
     <div class="border-top"></div>
 
     <div class="px-4 py-4 my-0 text-center">
+       
         <h3 class="newline fw-bold"><?php echo $posts['title'] ?></h3>
         <div class="col-lg-10 mx-auto">
             <div class="newline mb-4"><?php echo $posts['content'] ?></div>
