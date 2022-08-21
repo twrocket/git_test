@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/login/my_header.css">
+    <!-- https://www.webdesigns.com.tw/webdesign_favicon.asp -->
+    <link rel="icon" href="/img/title_cac.ico" type="image/x-icon">
 </head>
 <body >
     <div class="header-blue">
@@ -33,39 +35,31 @@
                         <a class="dropdown-item" href="#">高中繁星</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">大學申請</a>
-                        <a class="dropdown-item" href="#">大學繁星</a>
+                        <a class="dropdown-item" href="http://localhost:8080/UnivStar/index">大學繁星</a>
                     </div>
                     </li>
                     <li class="nav-item">
                     </li>
-                </ul>
-                <?php
-                if ($_SESSION['LOGIN'] == 0){
-                    echo '<a class="btn btn-light action-button Login" role="button" href="http://localhost:8080/LoginController/index">登入</a>';
-                }
-                else{
-                    echo '<a class="btn btn-light action-button Login" role="button" href="http://localhost:8080/LoginController/sign_out">登出</a>';
-                }
-                ?> 
+                </ul> 
             </div>
         </nav>
         <div class="container">
-            <div class="row align-items-center" style="margin-top:15vh; text-align:center; padding:-100vh;">
+            <div class="row align-items-center" style="margin-top:20vh; text-align:center; padding:-100vh;">
                 <div class="col-md-6">
                     <h1 style="font-size:5em;">111</h1>
                     <p class="p-111">邁向大學之路 開創成功未來</p><a href="https://rdrc.mnd.gov.tw/"><button class="btn btn-light btn-lg action-button" type="button">了解更多</button></a>
                 </div>
                 <div class="col-md-6">
-                    <div class="device pic">
+                    <div class="device pic" >
                         <!-- https://www.webdesigns.com.tw/css-zoom_in.asp -->
-                        <img src="laptop2.png">                   
+                        <img src="/img/laptop2.png">                   
                     </div>
                 </div>
                 <!-- https://medium.com/@kansetsu7/%E5%88%A9%E7%94%A8clearfix%E8%A7%A3%E6%B1%BAbootstrap-grid-system%E8%B7%91%E7%89%88%E5%95%8F%E9%A1%8C-%E4%BB%A5%E5%8F%8A%E5%85%B6%E8%83%8C%E5%BE%8C%E5%8E%9F%E7%90%86-58f6f461e4ca -->
                 <div class="clearfix hidden-xs"></div>
             </div>
             <div class="row align-items-center" style="margin: 5vh;">
-                <div class="col-sm-6" >
+                <div class="col-sm-6 mb-4 mb-sm-0" >
                     <div class="card action-card">
                         <div class="card-body" style="fill-opacity: 5vh;">
                         <h5 class="card-title">繁星資格</h5>
@@ -74,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6" >
+                <div class="col-sm-6 mb-4 mb-sm-0" >
                     <div class="card action-card" >
                         <div class="card-body" style="fill-opacity: 5vh;">
                         <h5 class="card-title">申請流程</h5>
