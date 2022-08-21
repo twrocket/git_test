@@ -1,13 +1,24 @@
 <?= $this->extend('templates\star_temp') ?>
 
-<?= $this->section('head_info') ?>
+<?= $this->section('head_info') ?>    
+    <?php
+    //重新導向 不能用header 因為header後不接受資料輸出 改用js
+    
+    echo '
+    <script>
+    alert("抱歉!現在不接受查詢");
+    alert("現在為您跳轉到首頁!");
+    window.location.href="/UnivStar/index";
+    </script>
+    ';
+    ?>
     <title>大學甄選入學委員會-錄取(篩選)結果查詢</title>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 	<div class="pt-2 pb-3 mx-lg-5 mx-md-3">
         <div class="container d-flex flex-wrap justify-content-start">
-            <span class="fs-3">錄取(篩選)結果查詢</span>
+            <span class="fs-3">錄取(篩選)結果查詢</span>           
         </div>
     </div>
 	<div class="border-top"></div>
