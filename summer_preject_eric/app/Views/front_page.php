@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/login/my_header.css">
+    <!-- https://www.webdesigns.com.tw/webdesign_favicon.asp -->
+    <link rel="icon" href="/img/title_cac.ico" type="image/x-icon">
 </head>
 <body >
     <div class="header-blue">
@@ -33,20 +35,12 @@
                         <a class="dropdown-item" href="#">高中繁星</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">大學申請</a>
-                        <a class="dropdown-item" href="#">大學繁星</a>
+                        <a class="dropdown-item" href="http://localhost:8080/UnivStar/index">大學繁星</a>
                     </div>
                     </li>
                     <li class="nav-item">
                     </li>
-                </ul>
-                <?php
-                if ($_SESSION['LOGIN'] == 0){
-                    echo '<a class="btn btn-light action-button Login" role="button" href="http://localhost:8080/LoginController/index">登入</a>';
-                }
-                else{
-                    echo '<a class="btn btn-light action-button Login" role="button" href="http://localhost:8080/LoginController/sign_out">登出</a>';
-                }
-                ?> 
+                </ul> 
             </div>
         </nav>
         <div class="container">
@@ -58,7 +52,7 @@
                 <div class="col-md-6">
                     <div class="device pic" >
                         <!-- https://www.webdesigns.com.tw/css-zoom_in.asp -->
-                        <img src="laptop2.png">                   
+                        <img src="/img/laptop2.png">                   
                     </div>
                 </div>
                 <!-- https://medium.com/@kansetsu7/%E5%88%A9%E7%94%A8clearfix%E8%A7%A3%E6%B1%BAbootstrap-grid-system%E8%B7%91%E7%89%88%E5%95%8F%E9%A1%8C-%E4%BB%A5%E5%8F%8A%E5%85%B6%E8%83%8C%E5%BE%8C%E5%8E%9F%E7%90%86-58f6f461e4ca -->
