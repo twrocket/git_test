@@ -3,18 +3,47 @@
 <?= $this->section('head_info') ?>
     <title>大學甄選入學委員會-大學繁星推薦</title>
 	<style>
-		#contentTable{
+		#contentTable {
 			word-break:break-all;
 			word-wrap:break-all;
 		}
+/* 
+		.pagination > li > a
+		{
+			background-color: red;
+			color: #5A4181;
+		}
+
+		.pagination > li > a:focus,
+		.pagination > li > a:hover,
+		.pagination > li > span:focus,
+		.pagination > li > span:hover
+		{
+			color: #5a5a5a;
+			background-color: #eee;
+			border-color: #ddd;
+		}
+
+		.pagination > .active > a
+		{
+			color: white;
+			background-color: #5A4181 !Important;
+			border: solid 1px #5A4181 !Important;
+		}
+
+		.pagination > .active > a:hover
+		{
+			background-color: #5A4181 !Important;
+			border: solid 1px #5A4181;
+		} */
 	</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 	<?php
 		$total_num = count($posts);
-		$page = isset($_GET['page'])? $_GET['page'] : 12;
-		$num_per_page = 2;
+		$page = isset($_GET['page'])? $_GET['page'] : 1;
+		$num_per_page = 10;
 	?>
 
 	<div class="pt-2 pb-3 mx-lg-5 mx-md-3">
@@ -51,36 +80,29 @@
 			</tbody>
 		</table>
 	</div>
-
 	
 	<nav aria-label="Page navigation">
-		<ul class="pagination">
+		<ul class="pagination pagination-sm justify-content-center">
 			<li class="page-item">
-			<a class="page-link" href="#" aria-label="Previous">
-				<span aria-hidden="true">&laquo;</span>
-			</a>
+				<a class="page-link" href="index?page=1" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
 			</li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item">
-			<a class="page-link" href="#" aria-label="Next">
-				<span aria-hidden="true">&raquo;</span>
-			</a>
+			<?php
+			for($i=1; $i<=ceil($total_num/$num_per_page); $i++) {
+				if($page-3 < $i && $i < $page+3) {
+					echo '<li class="page-item"><a class="page-link" href="index?page='.$i.'">'.$i.'</a></li>';
+			
+				}
+			}
+			?>
+    		<li class="page-item">
+				<a class="page-link" href="index?page=<?php echo ceil($total_num/$num_per_page) ?>" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
 			</li>
 		</ul>
 	</nav>
-
-<ul>
-	<?php
-	for($i=1; $i<=($total_num/$num_per_page+1); $i++) {
-		echo '<li><a href="index?page='.$i.'">page'.$i.'</a></li>';
-	}
-	?>
-
-</ul>
-
-
 <?= $this->endSection() ?>
 
 <?php
