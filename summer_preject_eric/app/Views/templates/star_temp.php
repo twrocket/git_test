@@ -2,8 +2,7 @@
 
 <?= $this->section('head_info') ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-    <link href="/css/star.css" rel="stylesheet">
-    
+    <link href="/css/star.css" rel="stylesheet">   
 <?= $this->endSection() ?>
 
 <?= $this->section('header') ?>
