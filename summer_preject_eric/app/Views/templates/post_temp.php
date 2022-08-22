@@ -33,7 +33,7 @@ check();
                     echo '
                         <li class="nav-item"><span class="nav-link px-2">'.$_SESSION['name'].'</span></li>
                         <li class="nav-item"><a href="/LoginController/sign_out" class="nav-link px-2">登出</a></li>
-                        <li class="nav-item"><a href="/LoginController/change_password_index"><button type="button" class="">重設密碼</button></a></li>
+                        <li class="nav-item"><a href="/LoginController/change_password_index" class="nav-link px-2">重設密碼</a></li>
                         ';    
                 }
                 ?>
