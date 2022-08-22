@@ -2,48 +2,14 @@
 
 <?= $this->section('head_info') ?>
     <title>大學甄選入學委員會-大學繁星推薦</title>
-	<style>
-		#contentTable {
-			word-break:break-all;
-			word-wrap:break-all;
-		}
-/* 
-		.pagination > li > a
-		{
-			background-color: red;
-			color: #5A4181;
-		}
-
-		.pagination > li > a:focus,
-		.pagination > li > a:hover,
-		.pagination > li > span:focus,
-		.pagination > li > span:hover
-		{
-			color: #5a5a5a;
-			background-color: #eee;
-			border-color: #ddd;
-		}
-
-		.pagination > .active > a
-		{
-			color: white;
-			background-color: #5A4181 !Important;
-			border: solid 1px #5A4181 !Important;
-		}
-
-		.pagination > .active > a:hover
-		{
-			background-color: #5A4181 !Important;
-			border: solid 1px #5A4181;
-		} */
-	</style>
+	<link href="/css/pagination.css" rel="stylesheet">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 	<?php
-		$total_num = count($posts);
-		$page = isset($_GET['page'])? $_GET['page'] : 1;
-		$num_per_page = 10;
+	$total_num = count($posts);
+	$page = isset($_GET['page'])? $_GET['page'] : 1;
+	$num_per_page = 10;
 	?>
 
 	<div class="pt-2 pb-3 mx-lg-5 mx-md-3">
@@ -65,44 +31,58 @@
 			if(!empty($posts)) {
 				usort($posts, 'sort_by_update');
 				for($i=($page-1)*$num_per_page; $i<min($page*$num_per_page, $total_num); $i++) {
-					if($posts[$i]['website'] == "大學繁星" and /*$posts[$i]['status_time'] != "已下架" and*/ $posts[$i]['status'] == "發布") {
-						echo '
-							<tr>
-								<td>'.substr($posts[$i]['update'], 0, 10).'</td>
-								<td>'.$posts[$i]['category'].'</td>
-								<td><a class="text-decoration-none" href="/UnivStar/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
-							</tr>
-						';
-					}
+					echo '
+						<tr>
+							<td>'.substr($posts[$i]['update'], 0, 10).'</td>
+							<td>'.$posts[$i]['category'].'</td>
+							<td><a class="text-decoration-none" href="/UnivStar/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
+						</tr>
+					';
 				}
+			} 
+			else {
+				echo '
+					<tr>
+						<td>目前尚無資料</td>
+						<td></td>
+						<td></td>
+					</tr>
+				';
 			}
 			?>
 			</tbody>
 		</table>
 	</div>
 	
+	<?php if(!empty($posts)): ?>
 	<nav aria-label="Page navigation">
 		<ul class="pagination pagination-sm justify-content-center">
 			<li class="page-item">
-				<a class="page-link" href="index?page=1" aria-label="Previous">
+				<a class="page-link link-dark" href="index?page=1" aria-label="Previous">
 					<span aria-hidden="true">&laquo;</span>
 				</a>
 			</li>
 			<?php
 			for($i=1; $i<=ceil($total_num/$num_per_page); $i++) {
-				if($page-3 < $i && $i < $page+3) {
-					echo '<li class="page-item"><a class="page-link" href="index?page='.$i.'">'.$i.'</a></li>';
-			
+				if($page-3 < $i && $i < $page) {
+					echo '<li class="page-item"><a class="page-link link-dark" href="index?page='.$i.'">'.$i.'</a></li>';
+				}
+				else if($i == $page) {
+					echo '<li class="page-item"><a class="page-link link-dark active" href="index?page='.$i.'">'.$i.'</a></li>';
+				}
+				else if($page < $i && $i < $page+3) {
+					echo '<li class="page-item"><a class="page-link link-dark" href="index?page='.$i.'">'.$i.'</a></li>';
 				}
 			}
 			?>
     		<li class="page-item">
-				<a class="page-link" href="index?page=<?php echo ceil($total_num/$num_per_page) ?>" aria-label="Next">
+				<a class="page-link link-dark" href="index?page=<?php echo ceil($total_num/$num_per_page) ?>" aria-label="Next">
 					<span aria-hidden="true">&raquo;</span>
 				</a>
 			</li>
 		</ul>
 	</nav>
+	<?php endif ?>
 <?= $this->endSection() ?>
 
 <?php
