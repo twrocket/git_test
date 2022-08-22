@@ -19,10 +19,14 @@
             </ul>
             <ul class="nav">
                 <div class="wrap">
-                    <div class="search">
-                        <input class="search-bar" type="text" name="search" id="search" placeholder="輸入關鍵字">
-                        <button class="search-btn"></button>
-                    </div>
+                    <form name = "keyword" action="/ControlController/search" enctype="mutipart/form-data" method="POST" >
+                                               
+                        <input  type="text" name="search" id="search" placeholder="輸入關鍵字">
+                        <button class="btn btn-primary" style = "background-color:#6096ba;color:blue;outline:none" type = "submit"> 搜尋 </button>
+                        <?php
+                        
+                        ?>
+                    </form>
                 </div>
             </ul>
         </div>

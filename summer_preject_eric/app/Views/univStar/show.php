@@ -19,7 +19,7 @@
         if($posts["status_time"]=='已下架')
         {         
            header("Location:http://localhost:8080/");//
-           echo "<script> alert('fail') </script>"; 
+           
            exit;
         }
 ?>
