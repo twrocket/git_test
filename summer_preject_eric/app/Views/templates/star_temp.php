@@ -10,8 +10,8 @@
 <!-- 上側導覽列 -->
     <nav id="navbar_top" class="py-2">
         <div class="container d-flex flex-wrap">
-            <ul class="nav me-auto">
-                <li class="nav-item"><a href="/home" class="nav-link px-2 active" aria-current="page">回首頁</a></li>
+            <ul class="nav">
+                <li class="nav-item"><a href="/home" class="nav-link px-2">回首頁</a></li>
                 <li class="nav-item"><a href="/UnivStar/index" class="nav-link px-2">大學繁星</a></li>
                 <li class="nav-item"><a href="/UnivApply/index" class="nav-link px-2">大學個申</a></li>
                 <li class="nav-item"><a href="/HighStar/index" class="nav-link px-2">高中繁星</a></li>

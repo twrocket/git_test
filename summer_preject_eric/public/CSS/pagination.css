@@ -1,0 +1,18 @@
+#contentTable {
+    word-break:break-all;
+    word-wrap:break-all;
+}
+
+.pagination > li > a {
+    background-color: #a3cef100;
+}
+
+.pagination > li > a:hover {
+    background-color: #8b8c8980;
+}
+
+.pagination > li > .active
+{
+    background-color: #8b8c8980;
+    border-color: #8b8c8980;
+}

@@ -10,5 +10,22 @@
             <span class="fs-3">發售辦法</span>
         </div>
     </div>
-	<div class="border-top"></div>
+	<div class="container border-top">
+		<table class="table table-hover table-borderless">
+			<thead>
+				<tr>
+					<th style="width: 20%"></th>
+					<th style="width: 20%"></th>
+					<th style="width: 60%"></th>
+				</tr>
+			</thead>
+			<tbody>
+			    <tr>
+					<td>目前尚無資料</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 <?= $this->endSection() ?>
