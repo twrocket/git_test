@@ -4,7 +4,6 @@ namespace App\Controllers;
 use App\Models\Post;
 
 use App\Controllers\BaseController;
-session_start();
 
 class UnivStar extends BaseController
 {
@@ -13,7 +12,8 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('website', "大學繁星")->where('status_time', "上架中")
+                        ->where('status', "發布")->findAll()
         ];
 
         return view('univStar/index', $data);
@@ -35,7 +35,8 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('website', "大學繁星")->where('status_time', "上架中")
+                        ->where('status', "發布")->where('category', "簡章訊息事項")->findAll()
         ];
 
         return view('univStar/announce_1', $data);
@@ -46,7 +47,8 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('website', "大學繁星")->where('status_time', "上架中")
+                        ->where('status', "發布")->where('category', "招生事務")->findAll()
         ];
 
         return view('univStar/announce_2', $data);
@@ -57,7 +59,8 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('website', "大學繁星")->where('status_time', "上架中")
+                        ->where('status', "發布")->where('category', "徵選資訊")->findAll()
         ];
 
         return view('univStar/announce_3', $data);
@@ -68,7 +71,8 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('website', "大學繁星")->where('status_time', "上架中")
+                        ->where('status', "發布")->where('category', "會議簡報")->findAll()
         ];
 
         return view('univStar/announce_4', $data);
@@ -79,7 +83,8 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('website', "大學繁星")->where('status_time', "上架中")
+                        ->where('status', "發布")->where('category', "其他事項")->findAll()
         ];
 
         return view('univStar/announce_5', $data);
