@@ -4,7 +4,6 @@ namespace App\Controllers;
 use App\Models\Post;
 
 use App\Controllers\BaseController;
-session_start();
 
 class UnivStar extends BaseController
 {
@@ -13,7 +12,7 @@ class UnivStar extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->findAll(),
         ];
 
         return view('univStar/index', $data);

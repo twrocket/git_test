@@ -9,28 +9,12 @@
 <!-- 上側導覽列 -->
     <nav id="navbar_top" class="py-2">
         <div class="container d-flex flex-wrap">
-            <ul class="nav me-auto">
-                <li class="nav-item"><a href="/home" class="nav-link px-2 active" aria-current="page">回首頁</a></li>
+            <ul class="nav">
+                <li class="nav-item"><a href="/home" class="nav-link px-2">回首頁</a></li>
                 <li class="nav-item"><a href="/UnivStar/index" class="nav-link px-2">大學繁星</a></li>
                 <li class="nav-item"><a href="/UnivApply/index" class="nav-link px-2">大學個申</a></li>
                 <li class="nav-item"><a href="/HighStar/index" class="nav-link px-2">高中繁星</a></li>
                 <li class="nav-item"><a href="/HighApply/index" class="nav-link px-2">高中個申</a></li>
-            </ul>
-            <ul class="nav">
-                <?php
-                if($_SESSION['LOGIN'] == 0) {
-                    echo '
-                        <li class="nav-item"><span class="nav-link px-2">訪客</span></li>
-                        <li class="nav-item"><a href="/LoginController/index" class="nav-link px-2">管理者登入</a></li>
-                    ';    
-                }
-                else {
-                    echo '
-                        <li class="nav-item"><span class="nav-link px-2">'.$_SESSION['name'].'</span></li>
-                        <li class="nav-item"><a href="/LoginController/sign_out" class="nav-link px-2">登出</a></li>
-                    ';    
-                }
-                ?>
             </ul>
         </div>
     </nav>
