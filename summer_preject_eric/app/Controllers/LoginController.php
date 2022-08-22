@@ -29,6 +29,11 @@ class LoginController extends BaseController
             echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
             return;
         }
+        if($_SESSION['LOGIN'] == 1){
+            echo '<p style="text-align:center"><a href="./index">已登入,一秒後進入管理頁面,按此也可進入</a></p>';
+            echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
+            return;
+        }
         $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
         $model = new Login();                        //抓全部資料
         $logins = $model->findAll();
@@ -36,6 +41,7 @@ class LoginController extends BaseController
             if($logins_item['account']==$_POST['account']&&$logins_item['password']==$_POST['password']){//逐一判斷資料是否正確
                     $_SESSION['LOGIN'] = 1; //成功登入，$_SESSION['LOGIN']設定1
                     $_SESSION['name'] = $logins_item['name']; //使用者名字
+                    $_SESSION['id'] = $logins_item['id']; //使用者id
                     echo '<p style="text-align:center"><a href="../PostController/index">'.$_SESSION['name'].'你好</a></p>';
                     echo '<meta http-equiv="refresh" content="1; url=/PostController/index">';
                     return;
@@ -111,7 +117,7 @@ class LoginController extends BaseController
             echo '<meta http-equiv="refresh" content="2; url=/LoginController/forgot_password_index">';
             return;
         }
-        $_SESSION['password_update'] = 1;
+        $_SESSION['password_update'] = 1; //確認正確，可進入重設密碼
         $_SESSION['email_code'] = ''; //清除mail驗證碼
         $_SESSION['check_usr'] == 0; //將忘記密碼的身分認證歸零，不能再進入此函式
         return view('logins/reset_password');
@@ -130,6 +136,31 @@ class LoginController extends BaseController
         $_SESSION['password_update'] = 0;
         session_destroy();
         return redirect("LoginController");
+    }
+    public function change_password_index() // %{更改密碼頁面}
+    {
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0){ //未登入，返回帳密首頁
+            return redirect("LoginController");
+        }
+        return view('logins/change_password_index');
+    }
+    public function check_old_password_and_change() // %{更改密碼頁面}
+    {
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0 || !isset($_POST['old_password'])){ //未登入，返回帳密首頁
+            return redirect("LoginController");
+        }
+        $model = new Login();                 //抓全部資料
+        $logins = $model->find($_SESSION['id']);
+        if($logins['password'] != $_POST['old_password']){
+            echo '<p style="text-align:center"><a href="./forgot_password_index">舊密碼錯誤,兩秒後返回,按此也可返回</a></p>';
+            echo '<meta http-equiv="refresh" content="2; url=/LoginController/forgot_password_index">';
+            return;
+        }
+        $data = [
+            'password' => $_POST['new_password']
+        ];
+        $model->update($_SESSION['id'], $data);
+        return view('logins/index');
     }
     public function sign_out() 
     {
