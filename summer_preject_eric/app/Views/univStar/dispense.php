@@ -1,6 +1,7 @@
 <?= $this->extend('templates\star_temp') ?>
 
 <?= $this->section('head_info') ?>    
+	<title>大學甄選入學委員會-錄取(篩選)結果查詢</title>
     <?php
     //重新導向 不能用header 因為header後不接受資料輸出 改用js
     
@@ -12,7 +13,7 @@
     </script>
     ';
     ?>
-    <title>大學甄選入學委員會-錄取(篩選)結果查詢</title>
+    
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
