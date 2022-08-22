@@ -21,16 +21,22 @@
 					</div>
 					<div class="col-6" >
 						<h1 style=" text-align: center; -webkit-text-stroke: 0.5px black; color: white;">密碼重設</h1>
-						<form action="/LoginController/password_update" enctype="mutipart/form-data" method="POST">
-							<div class="row mb-3">
-								<div><label  class="col-sm-12 col-form-label" style="font-size: 1.5rem; text-align: center;">輸入新密碼</label></div>
+						<form action="/LoginController/check_old_password_and_update" enctype="mutipart/form-data" method="POST">
+                            <div class="row mb-3">
+								<div><label  class="col-sm-12 col-form-label" style="font-size: 1.5rem; text-align: center;">輸入舊密碼</label></div>
 								<div class="col-sm-13 ">
-								    <input name="new_password" id="pwd1" type="password"  required="true" missingMessage="此欄位 必填" class="form-control" placeholder="在此欄位輸入新密碼">
+								    <input name="old_password" id="pwd0" type="password"  required="true" missingMessage="此欄位必填" class="form-control" placeholder="在此欄位輸入舊密碼">
+								</div>
+							</div>
+                            <div class="row mb-3">
+								<div><label class="col-sm-12 col-form-label" style="font-size: 1.5rem; text-align: center;">輸入新密碼</label></div>
+								<div class="col-sm-13 ">
+								    <input name="new_password" id="pwd1" type="password"  required="true" missingMessage="此欄位必填" class="form-control" placeholder="在此欄位輸入新密碼">
 								</div>
 							</div>
 							<div class="row mb-3">
 								<div class="col-sm-13 ">
-								    <input name="new_pwcheck" id="pwd2" type="password" required="true" missingMessage="此欄位 必填" class="form-control" placeholder="再輸入一次新密碼" onkeyup="validate()">
+								    <input name="new_pwcheck" id="pwd2" type="password" required="true" missingMessage="此欄位必填" class="form-control" placeholder="再輸入一次新密碼" onkeyup="validate()">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -61,11 +67,11 @@
         var pwd1 = document.getElementById("pwd1").value;
         var pwd2 = document.getElementById("pwd2").value;
         if(pwd1 == pwd2) {
-        document.getElementById("tishi").innerHTML="<font color='green'>密碼相同</font>";
+        document.getElementById("tishi").innerHTML="<font color='green'>新密碼相同</font>";
         document.getElementById("submit").disabled = false;
         }
         else {
-        document.getElementById("tishi").innerHTML="<font color='red'>密碼不相同</font>";
+        document.getElementById("tishi").innerHTML="<font color='red'>新密碼不相同</font>";
             document.getElementById("submit").disabled = true;
         }
     }

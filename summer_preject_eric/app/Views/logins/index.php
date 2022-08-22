@@ -62,6 +62,7 @@
 		</div>  
 	</body>
 </html>
+<form action="/LoginController/update_password_index"><button type="submit">重設</button></form>
 <script type ="text/javascript">
         function refresh_code(){ 
             var img = document.getElementById("imgcode").src="<?= base_url('LoginController/captcha')?>";
