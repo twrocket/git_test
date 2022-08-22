@@ -1,6 +1,6 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('post_content') ?>
+<?= $this->section('content') ?>
 	
 	<h3>上架中</h3>
 	

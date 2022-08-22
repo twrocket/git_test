@@ -43,7 +43,7 @@ check();
 <!-- 標題 -->
     <div id="title" class="pb-3 mb-0">
         <div class="container d-flex flex-wrap justify-content-center">
-            <div class="d-flex align-items-center py-2 mb-0 mb-lg-0 text-dark text-decoration-none">
+            <div class="d-flex align-items-center py-2 mb-0 mb-lg-0 text-decoration-none">
                 <span class="fs-2">公告管理頁面</span>
             </div>
         </div>
