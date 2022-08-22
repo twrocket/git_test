@@ -132,16 +132,16 @@ class LoginController extends BaseController
         session_destroy();
         return redirect("LoginController");
     }
-    public function update_password_index() // %{更改密碼頁面}
+    public function change_password_index() // %{更改密碼頁面}
     {
         if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0){ //未登入，返回帳密首頁
             return redirect("LoginController");
-        
-        return view('logins/update_password_index');
+        }
+        return view('logins/change_password_index');
     }
-    public function check_old_password_and_update() // %{更改密碼頁面}
+    public function check_old_password_and_change() // %{更改密碼頁面}
     {
-        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0){ //未登入，返回帳密首頁
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0 || !isset($_POST['old_password'])){ //未登入，返回帳密首頁
             return redirect("LoginController");
         }
         $model = new Login();                 //抓全部資料

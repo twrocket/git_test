@@ -21,7 +21,7 @@
 					</div>
 					<div class="col-6" >
 						<h1 style=" text-align: center; -webkit-text-stroke: 0.5px black; color: white;">密碼重設</h1>
-						<form action="/LoginController/check_old_password_and_update" enctype="mutipart/form-data" method="POST">
+						<form action="/LoginController/check_old_password_and_change" enctype="mutipart/form-data" method="POST">
                             <div class="row mb-3">
 								<div><label  class="col-sm-12 col-form-label" style="font-size: 1.5rem; text-align: center;">輸入舊密碼</label></div>
 								<div class="col-sm-13 ">
