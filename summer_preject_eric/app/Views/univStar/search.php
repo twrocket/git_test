@@ -32,16 +32,29 @@
 					<tbody>
 				';
 				foreach($posts as $posts_item) {
-					if($posts_item['website'] == "大學繁星" and $posts_item['status_time'] != "已下架" and $posts_item['status'] == "發布" and $posts_item['id'] == "$data_store") {
-						echo '
+					if($posts_item['website'] == "大學繁星" and $posts_item['status_time'] != "已下架" and $posts_item['status'] == "發布") {
+                                                                        
+                        foreach($data_store as $data){
+                            if($posts_item['id'] == "$data")
+                            {
+                        echo '
 							<tr>
 								<td>'.substr($posts_item['update'], 0, 10).'</td>
 								<td>'.$posts_item['category'].'</td>
 								<td><a class="text-decoration-none" href="/UnivStar/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a></td>
 							</tr>
 						';
+                            }
+                            else
+                            {
+                                echo'???';
+                            }
+                            
+                        }
 					}
+                    
 				}
+                
 				echo '</tbody>';
 			}
 			?>

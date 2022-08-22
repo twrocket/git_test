@@ -22,11 +22,11 @@ class ControlController extends BaseController
         alert("您要搜索的關鍵字不能為空")
         </script>
         '; 
-        return view('univStar/index.php');       
+        return view('univStar/index');       
         }
         else
-        {
-            $data_store = find_string($keyword);
+        {   $data_store = [];
+            $data_store = find_string($keyword);           
             return view('univStar/search.php',$data_store);
         }
         
