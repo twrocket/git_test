@@ -19,6 +19,9 @@
 	<div class="container border-top">
 		<table id="contentTable" class="table table-hover table-borderless">
 			<?php
+            use App\Models\Post;
+            $model = new Post();
+            $posts = $model->findAll();        
 			if(!empty($posts)) {
 				usort($posts, 'sort_by_update');
 				echo '
@@ -34,8 +37,8 @@
 				foreach($posts as $posts_item) {
 					if($posts_item['website'] == "大學繁星" and $posts_item['status_time'] != "已下架" and $posts_item['status'] == "發布") {
                                                                         
-                        foreach($data_store as $data){
-                            if($posts_item['id'] == "$data")
+                        foreach($posts as $data_store){
+                            if($posts_item['id'] == $data_store)
                             {
                         echo '
 							<tr>
@@ -44,13 +47,10 @@
 								<td><a class="text-decoration-none" href="/UnivStar/show/'.$posts_item['id'].'">'.$posts_item['title'].'</a></td>
 							</tr>
 						';
-                            }
-                            else
-                            {
-                                echo'???';
-                            }
+                            }                            
                             
                         }
+						
 					}
                     
 				}
