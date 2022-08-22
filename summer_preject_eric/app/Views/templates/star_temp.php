@@ -18,20 +18,6 @@
                 <li class="nav-item"><a href="/HighApply/index" class="nav-link px-2">高中個申</a></li>
             </ul>
             <ul class="nav">
-                <?php
-                if($_SESSION['LOGIN'] == 0) {
-                    echo '
-                        <li class="nav-item"><span class="nav-link px-2">訪客</span></li>
-                        <li class="nav-item"><a href="/LoginController/index" class="nav-link px-2">管理者登入</a></li>
-                    ';    
-                }
-                else {
-                    echo '
-                        <li class="nav-item"><span class="nav-link px-2">'.$_SESSION['name'].'</span></li>
-                        <li class="nav-item"><a href="/LoginController/sign_out" class="nav-link px-2">登出</a></li>
-                    ';    
-                }
-                ?>
             </ul>
         </div>
     </nav>

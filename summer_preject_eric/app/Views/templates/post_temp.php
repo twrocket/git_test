@@ -33,7 +33,7 @@ check();
         </div>
         <div class="col-4 text-end">
             <?php
-            if($_SESSION['LOGIN'] == 0) {
+            if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
                 echo '
                     <span>訪客</span>
                     <a href="#">
