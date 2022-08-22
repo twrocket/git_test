@@ -18,6 +18,12 @@
                 <li class="nav-item"><a href="/HighApply/index" class="nav-link px-2">高中個申</a></li>
             </ul>
             <ul class="nav">
+                <div class="wrap">
+                    <div class="search">
+                        <input class="search-bar" type="text" name="search" id="search" placeholder="輸入關鍵字">
+                        <button class="search-btn"></button>
+                    </div>
+                </div>
             </ul>
         </div>
     </nav>
