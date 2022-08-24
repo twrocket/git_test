@@ -29,6 +29,11 @@ class LoginController extends BaseController
             echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
             return;
         }
+        if($_SESSION['LOGIN'] == 1){
+            echo '<p style="text-align:center"><a href="./index">已登入,一秒後進入管理頁面,按此也可進入</a></p>';
+            echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
+            return;
+        }
         $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
         $model = new Login();                        //抓全部資料
         $logins = $model->findAll();

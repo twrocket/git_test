@@ -34,12 +34,14 @@
 					</thead>
 					<tbody>
 				';
+				
 				foreach($posts as $posts_item) {
 					if($posts_item['website'] == "大學繁星" and $posts_item['status_time'] != "已下架" and $posts_item['status'] == "發布") {
                                                                         
-                        foreach($posts as $data_store){
+                        foreach( $datas as $data_store){
+														
                             if($posts_item['id'] == $data_store)
-                            {
+                            {	
                         echo '
 							<tr>
 								<td>'.substr($posts_item['update'], 0, 10).'</td>

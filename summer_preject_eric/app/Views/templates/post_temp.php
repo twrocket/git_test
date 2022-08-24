@@ -33,7 +33,7 @@ check();
                     echo '
                         <li class="nav-item"><span class="nav-link px-2">'.$_SESSION['name'].'</span></li>
                         <li class="nav-item"><a href="/LoginController/sign_out" class="nav-link px-2">登出</a></li>
-                        <li class="nav-item"><a href="/LoginController/change_password_index"><button type="button" class="">重設密碼</button></a></li>
+                        <li class="nav-item"><a href="/LoginController/change_password_index" class="nav-link px-2">重設密碼</a></li>
                         ';    
                 }
                 ?>
@@ -44,7 +44,7 @@ check();
 <!-- 標題 -->
     <div id="title" class="pb-3 mb-0">
         <div class="container d-flex flex-wrap justify-content-center">
-            <div class="d-flex align-items-center py-2 mb-0 mb-lg-0 text-dark text-decoration-none">
+            <div class="d-flex align-items-center py-2 mb-0 mb-lg-0 text-decoration-none">
                 <span class="fs-2">公告管理頁面</span>
             </div>
         </div>

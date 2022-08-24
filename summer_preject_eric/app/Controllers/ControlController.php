@@ -26,11 +26,9 @@ class ControlController extends BaseController
         }
         else
         {   
-            $data = find_string($keyword);         
-            //foreach($data as $data_store)
-            //{
-            //    echo $data_store.'<br>';
-            //}
+            $data_store = find_string($keyword); 
+                   
+            $data = ['datas'=>$data_store];            
             return view('univStar/search.php',$data);
         }
         

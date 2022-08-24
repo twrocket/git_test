@@ -15,7 +15,7 @@ class PostController extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('status', "發布")->findAll()
         ];
 
         return view('posts/index', $data);
@@ -38,7 +38,7 @@ class PostController extends BaseController
         $model = new Post();
 
         $data = [
-            'posts' => $model->findAll()
+            'posts' => $model->where('status', "草稿")->findAll()
         ];
 
         return view('posts/draft', $data);
