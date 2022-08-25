@@ -1,4 +1,4 @@
-<?= $this->extend('templates\star_temp') ?>
+<?= $this->extend('templates\univStar_temp') ?>
 
 <?= $this->section('head_info') ?>
     <title>大學甄選入學委員會-考試單位</title>

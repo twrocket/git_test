@@ -1,7 +1,7 @@
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('header') ?>
-    <title>大學徵選委員會網頁-上架中</title>
+    <title>大學甄選入學委員會-上架中</title>
 	<script type="text/javascript" src="/Javascript/alert.js"></script>
 	<link href="/css/pagination.css" rel="stylesheet">
 <?= $this->endSection() ?>
