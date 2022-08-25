@@ -1,7 +1,7 @@
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('header') ?>
-    <title>大學徵選委員會網頁-發布公告</title>
+    <title>大學甄選入學委員會-發布公告</title>
 	<script src="/Javascript/ckeditor/ckeditor.js"></script>
 <?= $this->endSection() ?>
 
@@ -11,7 +11,7 @@
     	<label for="title">標題<br>
 			<input type="text" name="title" placeholder="請輸入標題" required>
 		</label><br>
-    	<label for="website">發布到哪個網頁<br>
+    	<label for="website">發布位置<br>
 			<select name="website">
 				<option selected disabled>請選擇網站</option>
 				<option value="大學繁星">大學繁星</option>
@@ -36,10 +36,10 @@
 		<label for="file">上傳檔案<br>
 			<input type="file" name="file"  multiple><!--裝飾上傳檔案的部分 都是將input忽略 在用新的去美化 -->			
 		</label><br>
-		<label for="dateStart">公告發布日期<br>
+		<label for="dateStart">發布日期<br>
 			<input type="date" name="dateStart" required>
 		</label><br>
-		<label for="dateEnd">公告下架日期<br>
+		<label for="dateEnd">下架日期<br>
 			<input type="date" name="dateEnd" required>
 		</label><br>
 

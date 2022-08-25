@@ -1,10 +1,8 @@
 <?= $this->extend('templates\temp') ?>
 
 <?php
-
-include('..\app\Controllers\ControlController.php');
-        $simple = new ControlController(); 
-        $simple->check();
+include('..\app\Views\controlsystems\check.php');
+check();
 ?>
 
 <?= $this->section('head_info') ?>

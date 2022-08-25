@@ -1,7 +1,7 @@
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('header') ?>
-    <title>大學徵選委員會網頁-編輯頁面</title>
+    <title>大學甄選入學委員會-編輯頁面</title>
 	<script src="/Javascript/ckeditor/ckeditor.js"></script>
 <?= $this->endSection() ?>
 

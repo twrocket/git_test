@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Post;
 
 use App\Controllers\BaseController;
+use App\Models\Post;
 
 class UnivStar extends BaseController
 {
