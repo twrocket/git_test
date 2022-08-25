@@ -19,19 +19,20 @@
         </div>
     </div>
 	<div class="container border-top">
-		<table id="contentTable" class="table table-hover table-borderless">
+		<table id="contentTable" class="table table-hover">
 			<thead>
 				<tr>
-					<th style="width: 10%"></th>
-					<th style="width: 10%"></th>
-					<th style="width: 10%"></th>
-					<th style="width: 10%"></th>
-					<th style="width: 10%"></th>
-					<th style="width: 30%"></th>
-					<th style="width: 10%"></th>
+					<th style="width: 10%">更新日期</th>
+					<th style="width: 10%">發布位置</th>
+					<th style="width: 10%">類別</th>
+					<th style="width: 10%">發布日期</th>
+					<th style="width: 10%">下架日期</th>
+					<th style="width: 10%">狀態</th>
+					<th style="width: 20%">標題</th>
+					<th style="width: 10%">編輯</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="table-group-divider">
 			<?php
 			if(!empty($posts)) {
 				usort($posts, 'sort_by_update');
@@ -39,6 +40,7 @@
 					echo '
 						<tr>
 							<td>'.substr($posts[$i]['update'], 0, 10).'</td>
+							<td>'.$posts[$i]['website'].'</td>
 							<td>'.$posts[$i]['category'].'</td>
 							<td>'.$posts[$i]['dateStart'].'</td>
 							<td>'.$posts[$i]['dateEnd'].'</td>
@@ -49,21 +51,21 @@
 					if($today<$var_start) {
 						echo'
 							<td>未上架</td>
-							<td><a href="/PostController/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
-							<td><a href="/PostController/edit/'.$posts[$i]['id'].'">編輯</a></td>
+							<td><a class="text-decoration-none" href="/PostController/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
+							<td><a class="text-decoration-none" href="/PostController/edit/'.$posts[$i]['id'].'">編輯</a></td>
 						';
 					}
 					else if($today>=$var_start&& $today<=$var_end) {
 						echo'
 							<td>上架中</td>
-							<td><a href="/PostController/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
-							<td><a href="/PostController/edit/'.$posts[$i]['id'].'">編輯</a></td>
+							<td><a class="text-decoration-none" href="/PostController/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
+							<td><a class="text-decoration-none" href="/PostController/edit/'.$posts[$i]['id'].'">編輯</a></td>
 						';
 					}
 					else if($today>$var_end) {
 						echo'
 							<td>已下架</td>
-							<td><a href="/PostController/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
+							<td><a class="text-decoration-none" href="/PostController/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
 							<td></td>	
 						';
 					}
@@ -74,6 +76,7 @@
 				echo '
 					<tr>
 						<td>目前尚無資料</td>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>

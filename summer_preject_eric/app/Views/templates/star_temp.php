@@ -10,21 +10,17 @@
     <nav id="navbar_top" class="py-2">
         <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
-                <li class="nav-item"><a href="/home" class="nav-link px-2">回首頁</a></li>
-                <li class="nav-item"><a href="/UnivStar/index" class="nav-link px-2">大學繁星</a></li>
-                <li class="nav-item"><a href="/UnivApply/index" class="nav-link px-2">大學個申</a></li>
-                <li class="nav-item"><a href="/HighStar/index" class="nav-link px-2">高中繁星</a></li>
-                <li class="nav-item"><a href="/HighApply/index" class="nav-link px-2">高中個申</a></li>
+                <li class="nav-item"><a href="/home" class="nav-link link-light px-2">回首頁</a></li>
+                <li class="nav-item"><a href="/UnivStar/index" class="nav-link link-light px-2">大學繁星</a></li>
+                <li class="nav-item"><a href="/UnivApply/index" class="nav-link link-light px-2">大學個申</a></li>
+                <li class="nav-item"><a href="/HighStar/index" class="nav-link link-light px-2">高中繁星</a></li>
+                <li class="nav-item"><a href="/HighApply/index" class="nav-link link-light px-2">高中個申</a></li>
             </ul>
             <ul class="nav">
                 <div class="wrap">
-                    <form name = "keyword" action="/ControlController/search" enctype="mutipart/form-data" method="POST" >
-                                               
+                    <form name = "keyword" action="/ControlController/search" enctype="mutipart/form-data" method="GET" >                       
                         <input  type="text" name="search" id="search" placeholder="輸入關鍵字">
-                        <button class="btn btn-primary" style = "background-color:#6096ba;color:blue;outline:none" type = "submit"> 搜尋 </button>
-                        <?php
-                        
-                        ?>
+                        <button class="btn btn-outline-light" type = "submit"> 搜尋 </button>
                     </form>
                 </div>
             </ul>
@@ -47,11 +43,11 @@
  <!-- 下側導覽列 -->
     <nav id="navbar_bottom" class="py-2">
         <ul class="nav d-flex flex-wrap justify-content-around">
-            <li class="nav-item"><a href="/UnivStar/query" class="nav-link px-auto">校系分則查詢</a></li>
-            <li class="nav-item"><a href="/UnivStar/online" class="nav-link px-auto">網路購買簡章</a></li>
-            <li class="nav-item"><a href="/UnivStar/freetelc" class="nav-link px-auto">聽障生免英聽檢定</a></li>
-            <li class="nav-item"><a href="/UnivStar/dispense" class="nav-link px-auto">錄取(篩選)結果查詢</a></li>
-            <li class="nav-item"><a href="/UnivStar/abandon" class="nav-link px-auto">網路聲明放棄</a></li>
+            <li class="nav-item"><a href="/UnivStar/query" class="nav-link link-light px-auto">校系分則查詢</a></li>
+            <li class="nav-item"><a href="/UnivStar/online" class="nav-link link-light px-auto">網路購買簡章</a></li>
+            <li class="nav-item"><a href="/UnivStar/freetelc" class="nav-link link-light px-auto">聽障生免英聽檢定</a></li>
+            <li class="nav-item"><a href="/UnivStar/dispense" class="nav-link link-light px-auto">錄取(篩選)結果查詢</a></li>
+            <li class="nav-item"><a href="/UnivStar/abandon" class="nav-link link-light px-auto">網路聲明放棄</a></li>
         </ul>
     </nav>
 <?= $this->endSection() ?>
