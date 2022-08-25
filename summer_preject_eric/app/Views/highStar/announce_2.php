@@ -35,7 +35,7 @@
 						<tr>
 							<td>'.substr($posts[$i]['update'], 0, 10).'</td>
 							<td>'.$posts[$i]['category'].'</td>
-							<td><a class="text-decoration-none" href="/UnivStar/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
+							<td><a class="text-decoration-none" href="/HighStar/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
 						</tr>
 					';
 				}

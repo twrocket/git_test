@@ -1,4 +1,4 @@
-<?= $this->extend('templates\univStar_temp') ?>
+<?= $this->extend('templates\univApply_temp') ?>
 
 <?= $this->section('head_info') ?>
     <title>大學甄選入學委員會-簡章訊息事項</title>
@@ -35,7 +35,7 @@
 						<tr>
 							<td>'.substr($posts[$i]['update'], 0, 10).'</td>
 							<td>'.$posts[$i]['category'].'</td>
-							<td><a class="text-decoration-none" href="/UnivStar/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
+							<td><a class="text-decoration-none" href="/UnivApply/show/'.$posts[$i]['id'].'">'.$posts[$i]['title'].'</a></td>
 						</tr>
 					';
 				}

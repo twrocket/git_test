@@ -8,46 +8,54 @@ main>div {
 
 footer {
     min-height: 5vh;
-    color: #e7ecef;
-    background-color: #274c77;
+    color: #ffffff;
+    background-color: #462255;
+}
+
+#navbar_top a:hover {
+    background-color: #aa4465;
+}
+
+#navbar_bottom a:hover {
+    background-color: #aa4465;
 }
 
 a:hover {
-    background-color: #8b8c89a0;
+    background-color: #ffa691;
 }
 
 #navbar_top {
-    background-color: #6096ba;
+    background-color: #462255;
 }
 
 #title {
-    background-color: #6096ba;
+    background-color: #462255;
 }
 
 #title>div {
-    background-color: #e7ecef;
+    background-color: #e7ecefe0;
 }
 
 #navbar_bottom {
-    background-color: #6096ba;
+    background-color: #462255;
 }
 
 @media screen and (min-width: 768px) {
     #sidebar {
-        background: linear-gradient(90deg, #a3cef1 98%, #e7ecef 100%);
+        background: linear-gradient(90deg, #93e1d8 98%, #ddfff7 100%);
     }
 }
 
 @media screen and (max-width: 768px) {
     #sidebar {
-        background: linear-gradient(180deg, #a3cef1 98%, #e7ecef 100%);
+        background: linear-gradient(180deg, #93e1d8 98%, #ddfff7 100%);
     }
 }
 
 .dropdownList {
-    background-color: #e7ecefa0;
+    background-color: #ddfff7;
 }
 
 #content {
-    background-color: #a3cef180;
+    background-color: #ddfff7;
 }

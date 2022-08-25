@@ -10,9 +10,9 @@ class PostController extends BaseController
 {
     public function index()
     {
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
         
         $model = new Post();
 
@@ -25,9 +25,9 @@ class PostController extends BaseController
 
     public function draft()
     {   
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         $model = new Post();
 
@@ -40,18 +40,18 @@ class PostController extends BaseController
 
     public function create()
     {
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         return view('posts/create');
     }
 
     public function enter()
     {
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         return view('posts/create');
     }
@@ -129,9 +129,9 @@ class PostController extends BaseController
 
     public function show($post_id)
     {
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         $model = new Post();
 
@@ -144,9 +144,9 @@ class PostController extends BaseController
 
     public function edit($post_id)
     {
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
         
         $model = new Post();
 
@@ -159,9 +159,9 @@ class PostController extends BaseController
     
     public function upload()
     {      
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         $model = new Post();
 
@@ -174,9 +174,9 @@ class PostController extends BaseController
 
     public function unupload()
     {      
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         $model = new Post();
 
@@ -189,9 +189,9 @@ class PostController extends BaseController
 
     public function disuploaded()
     {      
-        // if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-        //     return redirect("LoginController");
-        // }
+        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
+            return redirect("LoginController");
+        }
 
         $model = new Post();
 
