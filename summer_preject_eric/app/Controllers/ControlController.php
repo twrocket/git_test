@@ -101,9 +101,5 @@ class ControlController extends BaseController
             
         }
     }
-    return $array;
-    }
-
-    
-}
+}}
 ?>
