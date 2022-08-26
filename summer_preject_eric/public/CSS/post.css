@@ -17,7 +17,7 @@ footer {
 }
 
 #navbar_top {
-    background-color: #150e03;
+    background-color: #150e03e0;
 }
 
 #navbar_top>div>ul>li>a {
@@ -30,19 +30,11 @@ footer {
 
 #title {
     color: #dbb12a;
-    background-color: #150e03;
+    background-color: #150e03e0;
 }
 
-@media screen and (min-width: 768px) {
-    #sidebar {
-        background: linear-gradient(90deg, #dbb12ae0 98%, #e7ecef 100%);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #sidebar {
-        background: linear-gradient(180deg, #dbb12ae0 98%, #e7ecef 100%);
-    }
+#sidebar {
+    background-color: #fdd85d20;
 }
 
 #sidebar a:hover {
@@ -50,7 +42,7 @@ footer {
 }
 
 #content {
-    background-color: #dbb12a50;
+    background-color: #fdd85d20;
 }
 
 #content a:hover {

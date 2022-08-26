@@ -31,11 +31,11 @@
                         <h5 style="display: inline;">申請方式</h5>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">高中申請</a>
-                        <a class="dropdown-item" href="#">高中繁星</a>
+                        <a class="dropdown-item" href="/HighApply/index">高中個申</a>
+                        <a class="dropdown-item" href="/HighStar/index">高中繁星</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">大學申請</a>
-                        <a class="dropdown-item" href="http://localhost:8080/UnivStar/index">大學繁星</a>
+                        <a class="dropdown-item" href="/UnivApply/index">大學個申</a>
+                        <a class="dropdown-item" href="/UnivStar/index">大學繁星</a>
                     </div>
                     </li>
                     <li class="nav-item">

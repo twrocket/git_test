@@ -1,18 +1,38 @@
 <?= $this->extend('templates\post_temp') ?>
 
-<?= $this->section('header') ?>
-    <title>大學徵選委員會網頁-查看公告</title>
+<?= $this->section('head_info') ?>
+    <title>大學甄選入學委員會-查看公告</title>
+    <style>
+        .newline { 
+            word-wrap:break-word;
+            white-space: pre-wrap;
+        }
+    </style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <h1><?php echo $posts['title'] ?></h1>
-    <p>發布到<?php echo $posts['website'] ?></p>
-    <p>類別 : <?php echo $posts['category'] ?></p>
-    <p>內文 : <?php echo $posts['content'] ?></p>
-    <p>上傳檔案 : <?php echo $posts['file'] ?></p>
-    <p>公告發布日期 : <?php echo $posts['dateStart'] ?></p>
-    <p>公告下架日期 : <?php echo $posts['dateEnd'] ?></p>
-    <p>更新日期 : <?php echo $posts['update'] ?></p>
-    <p>狀態 : <?php echo $posts['status'] ?></p>
-    <a href="/PostController/edit/<?php echo $posts['id'] ?>">編輯</a>
+    <div class="pt-2 pb-3 mx-lg-5 mx-md-3">
+        <div class="container d-flex flex-wrap justify-content-start">
+            <span class="fs-3">查看公告</span>
+        </div>
+    </div>
+    <div class="border-top"></div>
+    <div class="px-4 py-4 my-0 text-center">
+        <h3 class="newline fw-bold mb-4"><?php echo $posts['title'] ?></h3>
+        <div class="col-lg-10 mx-auto">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <p class="px-4 me-sm-3">發布位置 : <?php echo $posts['website'] ?></p>
+                <p class="px-4 me-sm-3">類別 : <?php echo $posts['category'] ?></p>
+            </div>
+            <div class="newline mb-4"><?php echo $posts['content'] ?></div>
+            <p class="mb-4">上傳檔案 : <?php echo $posts['file'] ?></p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <p class="px-4 me-sm-3">更新日期 : <?php echo substr($posts['update'], 0, 10) ?></p>
+                <p class="px-4 me-sm-3">發布日期 : <?php echo $posts['dateStart'] ?></p>
+                <p class="px-4 me-sm-3">下架日期 : <?php echo $posts['dateEnd'] ?></p>
+                <p class="px-4 me-sm-3">狀態 : <?php echo $posts['status'] ?></p>
+            </div>
+            <a class="text-decoration-none" href="/PostController/edit/<?php echo $posts['id'] ?>">編輯</a>
+        </div>
+    </div>
 <?= $this->endSection() ?>

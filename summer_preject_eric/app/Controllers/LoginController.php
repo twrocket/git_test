@@ -12,13 +12,15 @@ class LoginController extends BaseController
         if(!isset($_SESSION['LOGIN'])){ //這個session來管理使用者登入狀態
             $_SESSION['LOGIN'] = 0;
         }
+        if($_SESSION['LOGIN'] == 1){ //已登入就跳到管理頁面
+            echo '<p style="text-align:center"><a href="./index">已登入,一秒後進入管理頁面,按此也可進入</a></p>';
+            echo '<meta http-equiv="refresh" content="2; url=/PostController/index">';
+            return;
+        }
         return view('logins/index');
     }
     public function check() // %{比對帳密資料}
     {
-        if(!isset($_SESSION['LOGIN'])){ //沒有定義，代表沒有進入過登入首頁，返回帳號密碼首頁
-            return redirect("LoginController");
-        }
         if((empty($_SESSION['check_word'])) || (empty($_POST['checkword']))){  //判斷圖片驗證碼是否為空   
             echo '<p style="text-align:center"><a href="./index">空的圖片驗證碼,兩秒後返回,按此也可返回</a></p>';
             echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
@@ -26,11 +28,6 @@ class LoginController extends BaseController
         }
         if($_SESSION['check_word'] != $_POST['checkword']){ //判斷圖片驗證碼是否相符
             echo '<p style="text-align:center"><a href="./index">不正確的圖片驗證碼,兩秒後返回,按此也可返回</a></p>';
-            echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
-            return;
-        }
-        if($_SESSION['LOGIN'] == 1){
-            echo '<p style="text-align:center"><a href="./index">已登入,一秒後進入管理頁面,按此也可進入</a></p>';
             echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
             return;
         }
@@ -54,7 +51,7 @@ class LoginController extends BaseController
             return;
         }
     }
-    public function forgot_password_index() // %{忘記密碼頁面}
+    public function forgot_password_index() // %{忘記密碼頁面} 輸入帳號 mail 圖形驗證碼
     {
         $_SESSION['check_usr'] = 0;
         return view('logins/forgot_password_index');
@@ -135,7 +132,8 @@ class LoginController extends BaseController
         $model->update($_SESSION['id'], $data);
         $_SESSION['password_update'] = 0;
         session_destroy();
-        return redirect("LoginController");
+        echo '<p style="text-align:center"><a href="./forgot_password_index">已更新密碼,請重新登入</a></p>';
+        echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
     }
     public function change_password_index() // %{更改密碼頁面}
     {
@@ -164,10 +162,7 @@ class LoginController extends BaseController
     }
     public function sign_out() 
     {
-        $_SESSION['LOGIN'] = 0; //登出設0
-        $_SESSION['name'] = ''; //清除使用者名稱
         session_destroy();
-        echo '<script>alert("已重設密碼，請重新登入")</script>';
         return redirect("LoginController");
     }
     public function captcha()

@@ -1,0 +1,53 @@
+header {
+    min-height: 25vh;
+}
+
+main>div {
+    min-height: 70vh;
+}
+
+footer {
+    min-height: 5vh;
+    color: #ffffff;
+    background-color: #283618;
+}
+
+a:hover {
+    background-color: #bc6c25a0;
+}
+
+#navbar_top {
+    background-color: #606c38;
+}
+
+#title {
+    background-color: #606c38;
+}
+
+#title>div {
+    background-color: #fefae0;
+}
+
+#navbar_bottom {
+    background-color: #606c38;
+}
+
+@media screen and (min-width: 768px) {
+    #sidebar {
+        background: linear-gradient(90deg, #dda15e 98%, #fefae080 100%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        background: linear-gradient(180deg, #dda15e 98%, #fefae080 100%);
+    }
+}
+
+.dropdownList {
+    background-color: #fefae080;
+}
+
+#content {
+    background-color: #fefae080;
+}
