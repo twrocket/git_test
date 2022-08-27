@@ -18,7 +18,7 @@
             </ul>
             <ul class="nav">
                 <div class="wrap">
-                    <form name = "keyword" action="/ControlController/search" enctype="mutipart/form-data" method="GET" >                       
+                    <form name = "keyword" action="/ControlController/search_highApply" enctype="mutipart/form-data" method="GET" >                       
                         <input  type="text" name="search" id="search" placeholder="輸入關鍵字">
                         <button class="btn btn-outline-light" type = "submit"> 搜尋 </button>
                     </form>
