@@ -3,6 +3,7 @@
 <?php
 include('..\app\Views\controlsystems\check.php');
 check();
+
 ?>
 
 <?= $this->section('head_info') ?>
