@@ -35,9 +35,22 @@
         <h3 class="newline fw-bold"><?php echo $posts['title'] ?></h3>
         <div class="col-lg-10 mx-auto">
             <div class="newline mb-4"><?php echo $posts['content'] ?></div>
-            <p>上傳檔案 : <?php echo $posts['file'] ?></p>
+            <?php
+            if($posts['file']==NULL)
+            {
+                echo "<p>上傳檔案 : 此貼文無檔案</p>";
+            }
+            else
+            {   $path =  '/File/'.$posts["title"].'/'.$posts["file"];
+                echo '<a href ="'.$path.'" download = '.$posts["file"].'>
+                     上傳檔案 : [ '.$posts["file"].' ]
+                     </a>
+                     ';
+            }
+            ?>
+            
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <p class="px-4 me-sm-3">發布日期 : <?php echo $posts['dateStart'] ?></p>
+                <p class="px-4 me-sm-3">發布日期 : <?php echo $posts['dateStart'] ?></p>   
                 <p class="px-4">更新日期 : <?php echo substr($posts['update'], 0, 10) ?></p>
             </div>
         </div>
