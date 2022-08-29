@@ -132,7 +132,7 @@ class LoginController extends BaseController
         $model->update($_SESSION['id'], $data);
         $_SESSION['password_update'] = 0;
         session_destroy();
-        echo '<p style="text-align:center"><a href="./forgot_password_index">已更新密碼,請重新登入</a></p>';
+        echo '<p style="text-align:center"><a href="http://localhost:8080/index.php/LoginController">已更新密碼,請重新登入</a></p>';
         echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
     }
     public function change_password_index() // %{更改密碼頁面}
@@ -150,15 +150,15 @@ class LoginController extends BaseController
         $model = new Login();                 //抓全部資料
         $logins = $model->find($_SESSION['id']);
         if($logins['password'] != $_POST['old_password']){
-            echo '<p style="text-align:center"><a href="./forgot_password_index">舊密碼錯誤,兩秒後返回,按此也可返回</a></p>';
-            echo '<meta http-equiv="refresh" content="2; url=/LoginController/forgot_password_index">';
+            echo '<p style="text-align:center"><a href="http://localhost:8080/LoginController/change_password_index">舊密碼錯誤,兩秒後返回,按此也可返回</a></p>';
+            echo '<meta http-equiv="refresh" content="2; url=/LoginController/change_password_index">';
             return;
         }
         $data = [
             'password' => $_POST['new_password']
         ];
         $model->update($_SESSION['id'], $data);
-        echo '<p style="text-align:center"><a href="./forgot_password_index">已更新密碼</a></p>';
+        echo '<p style="text-align:center"><a href="http://localhost:8080/PostController/index">已更新密碼</a></p>';
         echo '<meta http-equiv="refresh" content="2; url=/PostController/index">';
     }
     public function sign_out() 
