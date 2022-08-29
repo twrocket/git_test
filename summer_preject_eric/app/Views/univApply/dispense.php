@@ -1,17 +1,29 @@
 <?= $this->extend('templates\univApply_temp') ?>
+<input type="button" value="click me" />
 
+    <!--引用jQuery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!--引用SweetAlert2.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.3/sweetalert2.js" type="text/javascript"></script>    
 <?= $this->section('head_info') ?>    
 	<title>大學甄選入學委員會-錄取(篩選)結果查詢</title>
     <?php
     //重新導向 不能用header 因為header後不接受資料輸出 改用js
-    
-    echo '
-    <script>
-    alert("抱歉!現在不接受查詢");
-    alert("現在為您跳轉到首頁!");
-    window.location.href="/UnivApply/index";
-    </script>
+    $today = date('Y-m-d');
+	$time = '2022-08-01';
+	
+	if($today>$time)
+	{
+		
+		echo '
+    	<script>		
+    	alert("抱歉!現在不接受查詢");
+    	alert("現在為您跳轉到首頁!");
+    	window.location.href="/UnivApply/index";
+    	</script>
     ';
+	}
+    
     ?>
     
 <?= $this->endSection() ?>

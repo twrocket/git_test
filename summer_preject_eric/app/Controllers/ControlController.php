@@ -4,9 +4,8 @@ namespace App\Controllers;
 use App\Models\Post;
 use App\Controllers\BaseController;
 
-class ControlController extends BaseController
-{
-    public function search()
+class ControlController extends BaseController{   
+    public function search_univStar()
     {   
          
         include('..\app\Views\controlsystems\find_string.php');
@@ -30,6 +29,90 @@ class ControlController extends BaseController
                    
             $data = ['datas'=>$data_store];            
             return view('univStar/search.php',$data);
+        }
+        
+        
+    }
+    public function search_univApply()
+    {   
+         
+        include('..\app\Views\controlsystems\find_string.php');
+        include('..\app\Views\controlsystems\check.php');
+        check();
+        //獲取搜索關鍵字
+        
+        $keyword=$this->request->getVar('search');
+        //檢查是否為空
+        if($keyword==''){
+        echo'
+        <script>
+        alert("您要搜索的關鍵字不能為空")
+        </script>
+        '; 
+        return view('univApply/query');       
+        }
+        else
+        {   
+            $data_store = find_string($keyword); 
+                   
+            $data = ['datas'=>$data_store];            
+            return view('univApply/search.php',$data);
+        }
+        
+        
+    }
+    public function search_highApply()
+    {   
+         
+        include('..\app\Views\controlsystems\find_string.php');
+        include('..\app\Views\controlsystems\check.php');
+        check();
+        //獲取搜索關鍵字
+        
+        $keyword=$this->request->getVar('search');
+        //檢查是否為空
+        if($keyword==''){
+        echo'
+        <script>
+        alert("您要搜索的關鍵字不能為空")
+        </script>
+        '; 
+        return view('highApply/query');       
+        }
+        else
+        {   
+            $data_store = find_string($keyword); 
+                   
+            $data = ['datas'=>$data_store];            
+            return view('highApply/search.php',$data);
+        }
+        
+        
+    }
+    public function search_highStar()
+    {   
+         
+        include('..\app\Views\controlsystems\find_string.php');
+        include('..\app\Views\controlsystems\check.php');
+        check();
+        //獲取搜索關鍵字
+        
+        $keyword=$this->request->getVar('search');
+        //檢查是否為空
+        if($keyword==''){
+        echo'
+        <script>
+        alert("您要搜索的關鍵字不能為空")
+        </script>
+        '; 
+        return view('highStar/query');       
+        }
+        else
+        {   
+            $data_store = find_string($keyword); 
+                   
+            $data = ['datas'=>$data_store];            
+            return view('highStar/search.php',$data);
         }
         
         
