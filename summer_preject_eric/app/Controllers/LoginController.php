@@ -158,7 +158,8 @@ class LoginController extends BaseController
             'password' => $_POST['new_password']
         ];
         $model->update($_SESSION['id'], $data);
-        return view('logins/index');
+        echo '<p style="text-align:center"><a href="./forgot_password_index">已更新密碼</a></p>';
+        echo '<meta http-equiv="refresh" content="2; url=/PostController/index">';
     }
     public function sign_out() 
     {
