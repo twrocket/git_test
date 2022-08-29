@@ -49,7 +49,7 @@
 			</div>
 			<div class="input-group mb-3">
 				<label for="file" class="input-group-text">上傳檔案</label>
-				<input class="form-control" type="file" name="file" multiple>
+				<input class="form-control" type="file" name="file" value ="<?php echo $posts['file']?>">
 			</div>
 			<div class="input-group mb-3">
 				<label for="dateStart" class="input-group-text">發布日期</label>
