@@ -39,7 +39,7 @@ class LoginController extends BaseController
                     $_SESSION['LOGIN'] = 1; //成功登入，$_SESSION['LOGIN']設定1
                     $_SESSION['name'] = $logins_item['name']; //使用者名字
                     $_SESSION['id'] = $logins_item['id']; //使用者id
-                    echo '<p style="text-align:center"><a href="../PostController/index">'.$_SESSION['name'].'你好</a></p>';
+                    echo '<p style="text-align:center"><a href="../PostController/index">'.$_SESSION['name'].' 歡迎</a></p>';
                     echo '<meta http-equiv="refresh" content="1; url=/PostController/index">';
                     return;
             
