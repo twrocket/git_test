@@ -1,3 +1,10 @@
+<!-- 
+    模板 
+    全部網頁的框架(大學繁星、大學個申、高中繁星、高中個申、公告管理頁面)
+    頁面中包含header、sidebar、content、footer四個部分
+    為RWD設計
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

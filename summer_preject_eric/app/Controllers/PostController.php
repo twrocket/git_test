@@ -10,8 +10,14 @@ class PostController extends BaseController
 {
     public function index()
     {
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
         
         $model = new Post();
@@ -25,8 +31,14 @@ class PostController extends BaseController
 
     public function draft()
     {   
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         $model = new Post();
@@ -40,8 +52,14 @@ class PostController extends BaseController
 
     public function create()
     {
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         return view('posts/create');
@@ -49,8 +67,14 @@ class PostController extends BaseController
 
     public function enter()
     {
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         return view('posts/create');
@@ -163,8 +187,14 @@ class PostController extends BaseController
 
     public function show($post_id)
     {
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         $model = new Post();
@@ -178,8 +208,14 @@ class PostController extends BaseController
 
     public function edit($post_id)
     {
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
         
         $model = new Post();
@@ -193,8 +229,14 @@ class PostController extends BaseController
     
     public function upload()
     {      
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         $model = new Post();
@@ -208,8 +250,14 @@ class PostController extends BaseController
 
     public function unupload()
     {      
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         $model = new Post();
@@ -223,8 +271,14 @@ class PostController extends BaseController
 
     public function disuploaded()
     {      
-        if(!isset($_SESSION['LOGIN'])||$_SESSION['LOGIN'] == 0){
-            return redirect("LoginController");
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
         }
 
         $model = new Post();

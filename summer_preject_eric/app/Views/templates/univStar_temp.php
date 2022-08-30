@@ -1,3 +1,9 @@
+<!-- 
+    大學繁星模板
+    引用temp的模板，並完成header、sidebar、footer三個部分
+    content維持空白，待後續使用此模板者自行設計
+-->
+
 <?= $this->extend('templates\temp') ?>
 
 <?= $this->section('head_info') ?>
