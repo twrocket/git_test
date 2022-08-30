@@ -42,13 +42,14 @@
             }
             else
             {   $path =  '/File/'.$posts["title"].'/'.$posts["file"];
-                echo '<a href ="'.$path.'" download = '.$posts["file"].'>
-                     上傳檔案 : [ '.$posts["file"].' ]
+                echo '<span>上傳檔案 : </span>';
+                echo '<a href ="'.$path.'" download = '.$posts["file"].' class="text-decoration-none">
+                        '.$posts["file"].'
                      </a>
                      ';
             }
             ?>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
                 <p class="px-4 me-sm-3">發布日期 : <?php echo $posts['dateStart'] ?></p>
                 <p class="px-4">更新日期 : <?php echo substr($posts['update'], 0, 10) ?></p>
             </div>
