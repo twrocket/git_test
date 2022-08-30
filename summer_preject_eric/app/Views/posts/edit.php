@@ -44,7 +44,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="content" class="input-group-text">內文</label>
-				<textarea class="form-control" id="editor1" name="content" placeholder="請輸入內文" required><?php echo $posts['content'] ?></textarea>
+				<textarea class="form-control" id="editor1" name="content" placeholder="請輸入內文" required><?php echo $posts['content']?></textarea>
 				<div class="invalid-feedback">請填寫這個欄位</div>
 			</div>
 			<div class="input-group mb-3">
