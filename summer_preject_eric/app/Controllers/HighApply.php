@@ -8,7 +8,9 @@ use App\Models\Post;
 class HighApply extends BaseController
 {
     public function index()
-    {
+    {   include('..\app\Controllers\ControlController.php');
+        $simple = new ControlController(); //這一行建立物件
+        $simple->check(); //乎叫物件裡的displayVar()函式
         $model = new Post();
 
         $data = [

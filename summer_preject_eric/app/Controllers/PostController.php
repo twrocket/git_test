@@ -9,7 +9,7 @@ session_start();
 class PostController extends BaseController
 {
     public function index()
-    {
+    {   
         // 未登入者，將跳轉至登入頁面
         if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
             echo '
@@ -51,7 +51,7 @@ class PostController extends BaseController
     }
 
     public function create()
-    {
+    {   
         // 未登入者，將跳轉至登入頁面
         if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
             echo '
