@@ -39,7 +39,7 @@ class LoginController extends BaseController
                     $_SESSION['LOGIN'] = 1; //成功登入，$_SESSION['LOGIN']設定1
                     $_SESSION['name'] = $logins_item['name']; //使用者名字
                     $_SESSION['id'] = $logins_item['id']; //使用者id
-                    echo '<p style="text-align:center"><a href="../PostController/index">'.$_SESSION['name'].'你好</a></p>';
+                    echo '<p style="text-align:center"><a href="../PostController/index">'.$_SESSION['name'].' 歡迎</a></p>';
                     echo '<meta http-equiv="refresh" content="1; url=/PostController/index">';
                     return;
             
@@ -61,7 +61,7 @@ class LoginController extends BaseController
         if(!isset($_SESSION['check_usr'])){ //如果沒有定義，返回忘記密碼頁面
             return redirect("LoginController/forgot_password_index");
         }
-        if((empty($_SESSION['check_word'])) || (empty($_POST['checkword']))){  //判斷圖片驗證碼是否為空   
+        if((empty($_SESSION['check_word'])) || (empty($_POST['checkword']))){  //判斷圖片驗證碼是否為空
             echo '<p style="text-align:center"><a href="./forgot_password_index">空的圖片驗證碼,兩秒後返回,按此也可返回</a></p>';
             echo '<meta http-equiv="refresh" content="2; url=/LoginController/forgot_password_index">';
             return;
@@ -132,7 +132,7 @@ class LoginController extends BaseController
         $model->update($_SESSION['id'], $data);
         $_SESSION['password_update'] = 0;
         session_destroy();
-        echo '<p style="text-align:center"><a href="./forgot_password_index">已更新密碼,請重新登入</a></p>';
+        echo '<p style="text-align:center"><a href="http://localhost:8080/index.php/LoginController">已更新密碼,請重新登入</a></p>';
         echo '<meta http-equiv="refresh" content="2; url=/LoginController/index">';
     }
     public function change_password_index() // %{更改密碼頁面}
@@ -150,15 +150,16 @@ class LoginController extends BaseController
         $model = new Login();                 //抓全部資料
         $logins = $model->find($_SESSION['id']);
         if($logins['password'] != $_POST['old_password']){
-            echo '<p style="text-align:center"><a href="./forgot_password_index">舊密碼錯誤,兩秒後返回,按此也可返回</a></p>';
-            echo '<meta http-equiv="refresh" content="2; url=/LoginController/forgot_password_index">';
+            echo '<p style="text-align:center"><a href="http://localhost:8080/LoginController/change_password_index">舊密碼錯誤,兩秒後返回,按此也可返回</a></p>';
+            echo '<meta http-equiv="refresh" content="2; url=/LoginController/change_password_index">';
             return;
         }
         $data = [
             'password' => $_POST['new_password']
         ];
         $model->update($_SESSION['id'], $data);
-        return view('logins/index');
+        echo '<p style="text-align:center"><a href="http://localhost:8080/PostController/index">已更新密碼</a></p>';
+        echo '<meta http-equiv="refresh" content="2; url=/PostController/index">';
     }
     public function sign_out() 
     {
@@ -204,30 +205,6 @@ class LoginController extends BaseController
         };
         imagepng($image);
         imagedestroy($image);  //少這行畫面會全黑
-    }
-    public function checkcode() //這個func測試用
-    {
-        if(!isset($_SESSION)){
-            session_start();
-            }  //判斷session是否已啟動
-        
-        if((!empty($_SESSION['check_word'])) && (!empty($_POST['checkword']))){  //判斷此兩個變數是否為空
-            
-             if($_SESSION['check_word'] == $_POST['checkword']){
-                 
-                  $_SESSION['check_word'] = ''; //比對正確後，清空將check_word值
-                 
-                  header('content-Type: text/html; charset=utf-8');
-                 
-                  echo '<p> </p><p> </p><a href="./chptcha_index.php">OK輸入正確,將於一秒後跳轉(按此也可返回)</a>';
-                 echo '<meta http-equiv="refresh" content="1; url=/LoginController/captcha_index">';
-                 
-                  exit();
-             }else{
-                 echo '<p> </p><p> </p><a href="./chptcha_index.php">Error輸入錯誤,將於一秒後跳轉(按此也可返回)</a>';
-                 echo '<meta http-equiv="refresh" content="1; url=/LoginController/captcha_index">';
-             }
-            }
     }
 }
 

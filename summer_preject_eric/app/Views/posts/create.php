@@ -6,13 +6,14 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+	
 	<div class="pt-2 pb-3 mx-lg-5 mx-md-3 border-bottom">
         <div class="container d-flex flex-wrap justify-content-start">
             <span class="fs-3">發布公告</span>
         </div>
     </div>
 	<div class="container col-lg-10 mt-3">
-		<form class="needs-validation" novalidate action="/PostController/store" enctype="multipart/form-data" method="POST">
+		<form class="needs-validation" novalidate action="/PostController/store" enctype="multipart/form-data" method="POST" >
 			<div class="input-group mb-3">
 				<label for="title" class="input-group-text">標題</label>
 				<input type="text" class="form-control" name="title" placeholder="請輸入標題" required>

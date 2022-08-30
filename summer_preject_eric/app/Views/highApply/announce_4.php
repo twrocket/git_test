@@ -18,15 +18,15 @@
         </div>
     </div>
 	<div class="container border-top">
-		<table id="contentTable" class="table table-hover table-borderless">
+	<table id="contentTable" class="table table-hover">
 			<thead>
 				<tr>
-					<th style="width: 20%"></th>
-					<th style="width: 20%"></th>
-					<th style="width: 60%"></th>
+					<th style="width: 20%">更新日期</th>
+					<th style="width: 20%">類別</th>
+					<th style="width: 60%">標題</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="table-group-divider">
 			<?php
 			if(!empty($posts)) {
 				usort($posts, 'sort_by_update');

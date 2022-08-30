@@ -20,14 +20,24 @@ class HighStar extends BaseController
     }
 
     public function show($post_id)
-    {
+    {        
+
         $model = new Post();
-
-        $data = [
-            'posts' => $model->find($post_id)
+        $posts = $model->findAll();         
+        include('..\app\Controllers\ControlController.php');
+        $simple = new ControlController(); //這一行建立物件
+        $simple->check(); //乎叫物件裡的displayVar()函式
+        $model2 = new Post();
+        $data2 = [
+            'posts' => $model2->find($post_id)
         ];
-
-        return view('highStar/show', $data);
+        if($posts[$post_id-1]["status_time"]=='已下架')
+        {         
+        header("Location:http://localhost:8080/");//
+        echo "<script> alert('fail') </script>"; 
+        exit;
+        }
+        return view('highStar/show', $data2);
     }
 
     public function announce_1()
