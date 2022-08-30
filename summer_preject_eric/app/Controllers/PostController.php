@@ -128,7 +128,13 @@ class PostController extends BaseController
         
         $model->save($data);
 
-        return redirect('PostController');
+        echo '
+            <script>		
+                alert("資料已儲存!");
+                window.location.href="/PostController/index";
+            </script>';
+
+        // return redirect('PostController');
     }
 
     public function update()
@@ -182,7 +188,13 @@ class PostController extends BaseController
 
         $model->update($data_id, $data);
 
-        return redirect()->to('PostController');
+        echo '
+            <script>		
+                alert("資料已更新!");
+                window.location.href="/PostController/index";
+            </script>';
+
+        // return redirect()->to('PostController');
     }
 
     public function show($post_id)
