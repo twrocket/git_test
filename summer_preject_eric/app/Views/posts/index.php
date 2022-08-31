@@ -29,7 +29,7 @@
 					<th style="width: 10%">下架日期</th>
 					<th style="width: 10%">狀態</th>
 					<th style="width: 20%">標題</th>
-					<th style="width: 10%">編輯</th>
+					<th style="width: 10%">編輯與刪除</th>
 				</tr>
 			</thead>
 			<tbody class="table-group-divider">
