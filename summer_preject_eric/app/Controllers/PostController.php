@@ -145,9 +145,21 @@ class PostController extends BaseController
     public function update()
     {
         $model = new Post();
-        $title = $this->request->getVar('file_name');
-        $title = trim($title);
-        $title = preg_replace('/\s(?=)/', '', $title);
+        
+        $post_id = $this->request->getVar('id');
+        $user = $model->find($post_id);
+
+        if($user['file_name']==NULL)
+        {
+            $title = date('m-d-Y_h-i-s');
+            $title = preg_replace('/\s(?=)/', '', $title);
+        }
+        else
+        {
+            $title = $user['file_name'];
+            $title = trim($title);
+            $title = preg_replace('/\s(?=)/', '', $title);
+        }
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
         /*
@@ -317,12 +329,14 @@ class PostController extends BaseController
         $file_name = $user['file'];
         $path_file = '../public/File/'.$folder_name.'/'.$file_name;
         $path_folder = '../public/File/'.$folder_name;
+        
         if($file_name==NULL)
         {
 
         }
         else
-        {
+        {   $all_file =  scandir($path_folder);
+            print_r($all_file);
             if (!(is_dir($path_file)))
             {   
                 unlink($path_file);
@@ -336,14 +350,14 @@ class PostController extends BaseController
         
        
         
-        $data = [
-            'posts' => $model->delete($post_id)
-        ];
+        // $data = [
+        //     'posts' => $model->delete($post_id)
+        // ];
 
-        echo '
-            <script>		
-                alert("資料已刪除!");
-                window.location.href="/PostController/'.$page.'";
-            </script>';
+        // echo '
+        //     <script>		
+        //         alert("資料已刪除!");
+        //         window.location.href="/PostController/'.$page.'";
+        //     </script>';
     }
 }
