@@ -57,7 +57,7 @@
             }
             ?>
 
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
                 <p class="px-4 me-sm-3">更新日期 : <?php echo substr($posts['update'], 0, 10) ?></p>
                 <p class="px-4 me-sm-3">發布日期 : <?php echo $posts['dateStart'] ?></p>
                 <p class="px-4 me-sm-3">下架日期 : <?php echo $posts['dateEnd'] ?></p>
@@ -86,7 +86,7 @@
 					</div>
 			    </div>
 		    </div>	
-            
+
         </div>
     </div>
 <?= $this->endSection() ?>
