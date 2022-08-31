@@ -74,7 +74,7 @@
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_1">儲存草稿</button>
 				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_2">發布</button>
-								
+				
 				<!-- Modal 草稿 -->
 				<div class="modal fade" id="exampleModal_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -123,11 +123,6 @@
 <?= $this->section('body_script') ?>
 	<script>
         CKEDITOR.replace( 'editor1' );
-		const fileUploader = document.querySelector('#file-uploader');
-		fileUploader.addEventListener('change', (e) => {
-			e.target.files; // FileList object
-			e.target.files[0]; // File Object (Special Blob)  
-		});
     </script>
 	<script>
 		// Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -142,6 +137,7 @@
 				.forEach(function (form) {
 					form.addEventListener('submit', function (event) {
 						if (!form.checkValidity()) {
+							alert("部分欄位尚未完成")
 							event.preventDefault()
 							event.stopPropagation()
 						}
@@ -155,9 +151,9 @@
 		// 防呆(並免發布日期晚於下架日期)
 		$('form').submit(function() {
 			if($('input[name="dateStart"]').val() > $('input[name="dateEnd"]').val()) {
-				alert("發布日期晚於下架日期");
-				event.preventDefault();
-				return flase;
+				alert("發布日期晚於下架日期")
+				event.preventDefault()
+				return flase
 			}
 		})
 	</script>
