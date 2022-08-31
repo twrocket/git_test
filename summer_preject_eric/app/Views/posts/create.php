@@ -1,3 +1,8 @@
+<!-- 
+	公告管理頁面--發布公告
+	引用post_temp模板
+-->
+
 <?= $this->extend('templates\post_temp') ?>
 
 <?= $this->section('header') ?>
@@ -6,12 +11,14 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-	
+	<!-- 內容的標題 -->
 	<div class="pt-2 pb-3 mx-lg-5 mx-md-3 border-bottom">
         <div class="container d-flex flex-wrap justify-content-start">
             <span class="fs-3">發布公告</span>
         </div>
     </div>
+
+	<!-- 內容 -->
 	<div class="container col-lg-10 mt-3">
 		<form class="needs-validation" novalidate action="/PostController/store" enctype="multipart/form-data" method="POST" >
 			<div class="input-group mb-3">
@@ -63,11 +70,54 @@
 			</div>
 			<input type="datetime" name="update" value="<?php date_default_timezone_set("Asia/Taipei"); echo date("Y-m-d H:i:s") ?>" style="display: none">
 			<div class="mb-3">
-				<button type="submit" class="btn btn-primary" name="status" value="草稿">儲存草稿</button>
-				<button type="submit" class="btn btn-primary" name="status" value="發布">發布</button>
+
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_1">儲存草稿</button>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_2">發布</button>
+								
+				<!-- Modal 草稿 -->
+				<div class="modal fade" id="exampleModal_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">請再次確認</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								您確定要儲存這則公告嗎?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+								<button type="submit" class="btn btn-primary" name="status" value="草稿">確認</button>
+							</div>
+						</div>
+					</div>
+				</div>	
+
+				<!-- Modal 發布 -->
+				<div class="modal fade" id="exampleModal_2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">請再次確認</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								您確定要儲存這則公告嗎?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+								<button type="submit" class="btn btn-primary" name="status" value="發布">確認</button>
+							</div>
+						</div>
+					</div>
+				</div>	
+
 			</div>
 		</form>
 	</div>
+
+	
 <?= $this->endSection() ?>
 
 <?= $this->section('body_script') ?>
@@ -100,5 +150,15 @@
 					}, false)
 				})
 		})()
+	</script>
+	<script>
+		// 防呆(並免發布日期晚於下架日期)
+		$('form').submit(function() {
+			if($('input[name="dateStart"]').val() > $('input[name="dateEnd"]').val()) {
+				alert("發布日期晚於下架日期");
+				event.preventDefault();
+				return flase;
+			}
+		})
 	</script>
 <?= $this->endSection() ?>
