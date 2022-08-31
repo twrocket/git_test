@@ -11,11 +11,13 @@ function find_string($goal_string)
         foreach($posts as $posts_item) {
             $original_string_title = $posts_item['title'];
             $original_string_content = $posts_item['content'];
+            $original_string_file = $posts_item['file'];
                         
             $value_title = strpos($original_string_title,$goal_string);//第一個參數用來放我們要找的字串 第二個則是目標字串 第三個為偏移 可不寫==>可從終點開始找
             $value_content = strpos($original_string_content,$goal_string);
+            $value_file = strpos($original_string_file,$goal_string);
             
-            if( $value_content!==false || $value_title!==false) 
+            if( $value_content!==false || $value_title!==false||$value_file!==false) 
             {
                 array_push($array,$posts_item['id']);
                // echo $posts_item['title'].'<br>'.$posts_item['content'];
