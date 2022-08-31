@@ -64,6 +64,11 @@ class Post extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
                 'null' => True,
+            ],
+            'file_name' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => True,
             ]
         ]);
         $this->forge->addKey('id', True);

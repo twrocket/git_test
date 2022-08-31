@@ -25,7 +25,20 @@
                 <p class="px-4 me-sm-3">類別 : <?php echo $posts['category'] ?></p>
             </div>
             <div class="newline mb-4"><?php echo $posts['content'] ?></div>
-            <p class="mb-4">上傳檔案 : <?php echo $posts['file'] ?></p>
+            <?php
+            if($posts['file']==NULL)
+            {
+                echo "<p>上傳檔案 : 此貼文無檔案</p>";
+            }
+            else
+            {   $path =  '/File/'.$posts["file_name"].'/'.$posts["file"];
+                echo '<span>上傳檔案 : </span>';
+                echo '<a href ="'.$path.'" download = '.$posts["file"].' class="text-decoration-none">
+                        '.$posts["file"].'
+                     </a>
+                     ';
+            }
+            ?>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <p class="px-4 me-sm-3">更新日期 : <?php echo substr($posts['update'], 0, 10) ?></p>
                 <p class="px-4 me-sm-3">發布日期 : <?php echo $posts['dateStart'] ?></p>
