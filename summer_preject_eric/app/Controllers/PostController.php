@@ -9,7 +9,7 @@ session_start();
 class PostController extends BaseController
 {
     public function index()
-    {
+    {   
         // 未登入者，將跳轉至登入頁面
         if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
             echo '
@@ -51,7 +51,7 @@ class PostController extends BaseController
     }
 
     public function create()
-    {
+    {   
         // 未登入者，將跳轉至登入頁面
         if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
             echo '
@@ -83,6 +83,8 @@ class PostController extends BaseController
     public function store()
     {   
         $title = $this->request->getVar('title');
+        $title = trim($title);
+        $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
         /*
@@ -128,13 +130,21 @@ class PostController extends BaseController
         
         $model->save($data);
 
-        return redirect('PostController');
+        echo '
+            <script>		
+                alert("資料已儲存!");
+                window.location.href="/PostController/index";
+            </script>';
+
+        // return redirect('PostController');
     }
 
     public function update()
     {
         $model = new Post();
         $title = $this->request->getVar('title');
+        $title = trim($title);
+        $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
         /*
@@ -182,7 +192,13 @@ class PostController extends BaseController
 
         $model->update($data_id, $data);
 
-        return redirect()->to('PostController');
+        echo '
+            <script>		
+                alert("資料已更新!");
+                window.location.href="/PostController/index";
+            </script>';
+
+        // return redirect()->to('PostController');
     }
 
     public function show($post_id)

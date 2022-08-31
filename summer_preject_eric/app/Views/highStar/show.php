@@ -11,18 +11,6 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<?php
-        include('..\app\Views\controlsystems\check.php');
-        check();    
-        
-        
-        if($posts["status_time"]=='已下架')
-        {         
-           header("Location:http://localhost:8080/");//
-           
-           exit;
-        }
-?>
     <div class="pt-2 pb-3 mx-lg-5 mx-md-3">
         <div class="container d-flex flex-wrap justify-content-start">
             <span class="fs-3">訊息公告 - <?php echo $posts['category'] ?></span>
