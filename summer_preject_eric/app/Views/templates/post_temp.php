@@ -14,6 +14,11 @@ check();
 
 <?= $this->section('head_info') ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
     <link href="/css/post.css" rel="stylesheet">   
 <?= $this->endSection() ?>
 
