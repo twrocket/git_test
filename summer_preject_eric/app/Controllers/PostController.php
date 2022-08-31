@@ -190,7 +190,8 @@ class PostController extends BaseController
             'dateEnd' => $this->request->getVar('dateEnd'),
             'update' => $this->request->getVar('update'),
             'status' => $this->request->getVar('status'),
-            'status_time'=>'未處理'          
+            'status_time'=>'未處理',
+            'file_name' => $title        
         ];
 
         $model->update($data_id, $data);

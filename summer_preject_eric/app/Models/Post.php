@@ -24,7 +24,8 @@ class Post extends Model
         'dateEnd',
         'update',
         'status',
-        'status_time'
+        'status_time',
+        'file_name'
     ];
 
     // Dates

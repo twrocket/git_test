@@ -41,7 +41,7 @@
                 echo "<p>上傳檔案 : 此貼文無檔案</p>";
             }
             else
-            {   $path =  '/File/'.$posts["title"].'/'.$posts["file"];
+            {   $path =  '/File/'.$posts["file_name"].'/'.$posts["file"];
                 echo '<span>上傳檔案 : </span>';
                 echo '<a href ="'.$path.'" download = '.$posts["file"].' class="text-decoration-none">
                         '.$posts["file"].'
