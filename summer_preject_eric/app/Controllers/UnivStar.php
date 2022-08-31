@@ -32,7 +32,7 @@ class UnivStar extends BaseController
         $data2 = [
             'posts' => $model2->find($post_id)
         ];
-        if($posts[$post_id-1]["status_time"]=='已下架')
+        if($user["status_time"]=='已下架'||$user["status"]=='草稿')
         {         
         header("Location:http://localhost:8080/");//
         echo "<script> alert('fail') </script>"; 

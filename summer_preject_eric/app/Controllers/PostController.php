@@ -132,7 +132,9 @@ class PostController extends BaseController
         ];
         
         $model->save($data);
-
+        include('..\app\Controllers\ControlController.php');
+        $simple = new ControlController(); //這一行建立物件
+        $simple->check(); //乎叫物件裡的displayVar()函式
         echo '
             <script>		
                 alert("資料已儲存!");
@@ -310,16 +312,26 @@ class PostController extends BaseController
     public function delete($page, $post_id)
     {      
         $model = new Post();
-        $user = $model->find($post_id);
-        print_r($user);
-        //$title = $user('file_name');
-        //$path = '../public/File/'.$title;
-       // unlink("");
+        $user = $model->find($post_id);        
+        $folder_name = $user['file_name'];
+        $file_name = $user['file'];
+        $path_file = '../public/File/'.$folder_name.$file_name;
+        $path_folder = '../public/File/'.$folder_name;
+        if (is_dir($path_file))
+        {   unlink($path_file);
+            rmdir($path_folder); 
+        } 
+        else
+        {
+            rmdir($path_folder); 
+        }
+       
+        
         $data = [
             'posts' => $model->delete($post_id)
         ];
 
-       /* echo '
+        /*echo '
             <script>		
                 alert("資料已刪除!");
                 window.location.href="/PostController/'.$page.'";
