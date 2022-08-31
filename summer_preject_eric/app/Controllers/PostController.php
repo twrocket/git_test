@@ -135,8 +135,6 @@ class PostController extends BaseController
                 alert("資料已儲存!");
                 window.location.href="/PostController/index";
             </script>';
-
-        // return redirect('PostController');
     }
 
     public function update()
@@ -197,8 +195,6 @@ class PostController extends BaseController
                 alert("資料已更新!");
                 window.location.href="/PostController/index";
             </script>';
-
-        // return redirect()->to('PostController');
     }
 
     public function show($post_id)
@@ -304,5 +300,20 @@ class PostController extends BaseController
         ];
 
         return view('posts/disuploaded', $data);
+    }
+
+    public function delete($page, $post_id)
+    {      
+        $model = new Post();
+
+        $data = [
+            'posts' => $model->delete($post_id)
+        ];
+
+        echo '
+            <script>		
+                alert("資料已刪除!");
+                window.location.href="/PostController/'.$page.'";
+            </script>';
     }
 }
