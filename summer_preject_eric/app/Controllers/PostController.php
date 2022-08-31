@@ -82,8 +82,10 @@ class PostController extends BaseController
     
     public function store()
     {   
-        $title = $this->request->getVar('title');
+        $title = $this->request->getVar('title');        
         $title = trim($title);
+        $title = preg_replace('/\s(?=)/', '', $title);
+        $title = date('m-d-Y_h-i-s');
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
@@ -125,7 +127,8 @@ class PostController extends BaseController
             'dateEnd' => $this->request->getVar('dateEnd'),
             'update' => $this->request->getVar('update'),
             'status' => $this->request->getVar('status'),
-            'status_time'=>'未處理'
+            'status_time'=>'未處理',
+            'file_name' => $title
         ];
         
         $model->save($data);
@@ -140,7 +143,7 @@ class PostController extends BaseController
     public function update()
     {
         $model = new Post();
-        $title = $this->request->getVar('title');
+        $title = $this->request->getVar('id');
         $title = trim($title);
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
@@ -185,7 +188,8 @@ class PostController extends BaseController
             'dateEnd' => $this->request->getVar('dateEnd'),
             'update' => $this->request->getVar('update'),
             'status' => $this->request->getVar('status'),
-            'status_time'=>'未處理'          
+            'status_time'=>'未處理',
+            'file_name' => $title        
         ];
 
         $model->update($data_id, $data);
