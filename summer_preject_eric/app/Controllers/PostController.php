@@ -335,8 +335,9 @@ class PostController extends BaseController
 
         }
         else
-        {   $all_file =  scandir($path_folder);
-            print_r($all_file);
+        {   
+            // $all_file =  scandir($path_folder);
+            // print_r($all_file);
             if (!(is_dir($path_file)))
             {   
                 unlink($path_file);
@@ -350,14 +351,14 @@ class PostController extends BaseController
         
        
         
-        // $data = [
-        //     'posts' => $model->delete($post_id)
-        // ];
+        $data = [
+            'posts' => $model->delete($post_id)
+        ];
 
-        // echo '
-        //     <script>		
-        //         alert("資料已刪除!");
-        //         window.location.href="/PostController/'.$page.'";
-        //     </script>';
+        echo '
+            <script>		
+                alert("資料已刪除!");
+                window.location.href="/PostController/'.$page.'";
+            </script>';
     }
 }
