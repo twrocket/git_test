@@ -33,9 +33,9 @@ class UnivApply extends BaseController
             'posts' => $model2->find($post_id)
         ];
         $user = $model->find($post_id);
-        if($user["status_time"]=='已下架')
+        if($user["status_time"]=='已下架'||$user["status"]=='草稿')
         {
-        header("Location:http://localhost:8080/");//
+        header("Location:http://localhost:8080/");
         echo "<script> alert('fail') </script>"; 
         exit;
         }
