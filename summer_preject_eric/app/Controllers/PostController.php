@@ -315,26 +315,35 @@ class PostController extends BaseController
         $user = $model->find($post_id);        
         $folder_name = $user['file_name'];
         $file_name = $user['file'];
-        $path_file = '../public/File/'.$folder_name.$file_name;
+        $path_file = '../public/File/'.$folder_name.'/'.$file_name;
         $path_folder = '../public/File/'.$folder_name;
-        if (is_dir($path_file))
-        {   unlink($path_file);
-            rmdir($path_folder); 
-        } 
+        if($file_name==NULL)
+        {
+
+        }
         else
         {
-            rmdir($path_folder); 
+            if (!(is_dir($path_file)))
+            {   
+                unlink($path_file);
+                rmdir($path_folder); 
+            } 
+            else
+            {
+                rmdir($path_folder); 
+            }
         }
+        
        
         
         $data = [
             'posts' => $model->delete($post_id)
         ];
 
-        /*echo '
+        echo '
             <script>		
                 alert("資料已刪除!");
                 window.location.href="/PostController/'.$page.'";
-            </script>';*/
+            </script>';
     }
 }
