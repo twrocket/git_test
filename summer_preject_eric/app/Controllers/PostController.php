@@ -85,7 +85,7 @@ class PostController extends BaseController
         $title = $this->request->getVar('title');        
         $title = trim($title);
         $title = preg_replace('/\s(?=)/', '', $title);
-        $title = date('m-d-Y');
+        $title = date('m-d-Y_h-i-s');
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
