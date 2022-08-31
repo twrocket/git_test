@@ -143,7 +143,7 @@ class PostController extends BaseController
     public function update()
     {
         $model = new Post();
-        $title = $this->request->getVar('id');
+        $title = $this->request->getVar('file_name');
         $title = trim($title);
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
@@ -188,12 +188,13 @@ class PostController extends BaseController
             'dateEnd' => $this->request->getVar('dateEnd'),
             'update' => $this->request->getVar('update'),
             'status' => $this->request->getVar('status'),
-            'status_time'=>'未處理',
-            'file_name' => $title        
+            'status_time'=>'未處理',                  
         ];
 
         $model->update($data_id, $data);
-
+        include('..\app\Controllers\ControlController.php');
+        $simple = new ControlController(); //這一行建立物件
+        $simple->check(); //乎叫物件裡的displayVar()函式
         echo '
             <script>		
                 alert("資料已更新!");
@@ -309,15 +310,19 @@ class PostController extends BaseController
     public function delete($page, $post_id)
     {      
         $model = new Post();
-
+        $user = $model->find($post_id);
+        print_r($user);
+        //$title = $user('file_name');
+        //$path = '../public/File/'.$title;
+       // unlink("");
         $data = [
             'posts' => $model->delete($post_id)
         ];
 
-        echo '
+       /* echo '
             <script>		
                 alert("資料已刪除!");
                 window.location.href="/PostController/'.$page.'";
-            </script>';
+            </script>';*/
     }
 }
