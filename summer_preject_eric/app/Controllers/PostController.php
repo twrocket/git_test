@@ -338,7 +338,7 @@ class PostController extends BaseController
         {   
             // $all_file =  scandir($path_folder);
             // print_r($all_file);
-            if ((is_dir($path_file)))
+            if (!(is_dir($path_file)))
             {   
                 unlink($path_file);
                 rmdir($path_folder); 
