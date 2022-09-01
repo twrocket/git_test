@@ -56,7 +56,7 @@
 			</div>
 			<div class="input-group mb-3">
 				<label for="file" class="input-group-text">上傳檔案</label>
-				<input class="form-control" type="file" name="file" multiple>
+				<input class="form-control" type="file" name="file">
 			</div>
 			<div class="input-group mb-3">
 				<label for="dateStart" class="input-group-text">發布日期</label>
@@ -156,5 +156,14 @@
 				return flase
 			}
 		})
+	</script>
+	<script>
+		// 編輯中切至其他頁面前提醒使用者尚未儲存
+		$('form').data('serialize', $('form').serialize()); // On load save form current state
+	
+		$(window).bind('beforeunload', function(e) {
+			if($('form').serialize() != $('form').data('serialize')) return true;
+			else e=null; // i.e; if form state change show warning box, else don't show it.
+		});
 	</script>
 <?= $this->endSection() ?>

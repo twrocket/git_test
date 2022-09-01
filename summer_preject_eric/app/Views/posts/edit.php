@@ -60,7 +60,22 @@
 				
 				<?php $file_location = '../public/File'.$posts['file_name'].'/'.$posts['file']; ?>
 				<input class="form-control" type="file" name="file" value ="<?php echo $file_location?>">
+				
+				<?php
+				if($posts['file']==NULL) {
+					echo '<p>上傳檔案 : 此貼文無檔案</p>';
+				}
+				else {
+					$path =  '/File/'.$posts["file_name"].'/'.$posts["file"];
+					echo '
+						<span>上傳檔案 : </span>
+						<a href ="'.$path.'" download = '.$posts["file"].' class="text-decoration-none">'.$posts["file"].'</a>
+					';
+				}
+				?>
+
 			</div>
+			
 			<div class="input-group mb-3">
 				<label for="dateStart" class="input-group-text">發布日期</label>
 				<input type="date" class="form-control" name="dateStart" required value="<?php echo $posts['dateStart'] ?>">
