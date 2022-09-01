@@ -243,8 +243,25 @@ class UnivApply extends BaseController
     }
 
     public function dispense()
-    {
-        return view('univApply/dispense');
+    {include('..\app\Controllers\ControlController.php');
+        $simple = new ControlController(); //這一行建立物件
+        $value = $simple->control_consequence("大學個申"); //乎叫物件裡的displayVar()函式
+        if($value == 0)
+        {
+            echo '
+             <script>
+            alert("抱歉!現在不接受查詢");
+            alert("現在為您跳轉到首頁!");
+            window.location.href="/UnivStar/index";
+            </script>
+        ';
+    
+        }
+        else
+        {
+            return view('univApply/dispense');
+        }
+        
     }
 
     public function abandon()
