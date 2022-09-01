@@ -82,18 +82,13 @@ class PostController extends BaseController
     }
     
     public function store()
-    {   
-<<<<<<< HEAD
-        $title = $this->request->getVar('title');        
-        $title = trim($title);
-        $title = preg_replace('/\s(?=)/', '', $title);
-=======
+    {          
+
         if (!(is_dir('File/')))//資料夾名稱不存在
         {    $path = '../public/File/';
              mkdir($path, 0777, false);//建立File資料夾
         } 
 
->>>>>>> f628261cf55cd8c33becdb132dd6702989825da2
         $title = date('m-d-Y_h-i-s');
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
@@ -153,14 +148,13 @@ class PostController extends BaseController
     
     public function update()
     {
-<<<<<<< HEAD
-=======
+
         if (!(is_dir('File/')))//資料夾名稱不存在
         {    $path = '../public/File/';
              mkdir($path, 0777, false);//建立File資料夾
         }
         
->>>>>>> f628261cf55cd8c33becdb132dd6702989825da2
+
         $model = new Post();
         
         $post_id = $this->request->getVar('id');
