@@ -83,6 +83,12 @@ class PostController extends BaseController
     
     public function store()
     {   
+        # 檢查檔案是否已經存在
+        if (!(is_dir('File/'))) {    //資料夾名稱不存在
+            $path = '../public/File/';
+            mkdir($path, 0777, false);  //建立File資料夾
+        } 
+
         $title = date('m-d-Y_h-i-s');
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
@@ -141,6 +147,12 @@ class PostController extends BaseController
     }  
     public function update()
     {
+        # 檢查檔案是否已經存在
+        if (!(is_dir('File/'))) {    //資料夾名稱不存在
+            $path = '../public/File/';
+            mkdir($path, 0777, false);  //建立File資料夾
+        }
+
         $model = new Post();
         
         $post_id = $this->request->getVar('id');
