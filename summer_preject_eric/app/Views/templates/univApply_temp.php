@@ -53,7 +53,7 @@
             <li class="nav-item"><a href="/UnivApply/online" class="nav-link link-light px-auto">網路購買簡章</a></li>
             <li class="nav-item"><a href="/UnivApply/apply" class="nav-link link-light px-auto">網路報名系統</a></li>
             <li class="nav-item"><a href="/UnivApply/freetelc" class="nav-link link-light px-auto">聽障生免英聽檢定</a></li>
-            <li class="nav-item"><a href="/UnivApply/result" class="nav-link link-light px-auto">篩選結查詢果</a></li>
+            <li class="nav-item"><a href="/UnivApply/result" class="nav-link link-light px-auto">篩選結果查詢</a></li>
             <li class="nav-item"><a href="/UnivApply/dataupload" class="nav-link link-light px-auto">審查資料上傳</a></li>
             <li class="nav-item"><a href="/UnivApply/list" class="nav-link link-light px-auto">各校榜單連結</a></li>
             <li class="nav-item"><a href="/UnivApply/rank" class="nav-link link-light px-auto">網路登記志願</a></li>

@@ -2,9 +2,92 @@
 
 namespace App\Controllers;
 use App\Models\Post;
+use App\Models\control;
 use App\Controllers\BaseController;
 
 class ControlController extends BaseController{   
+    public function store()
+    {          
+        $model = new control();
+        
+        $data = [            
+            'category' => $this->request->getVar('website'),
+            'location' => $this->request->getVar('category'),
+            'time' => $this->request->getVar('start_time'),
+            'time_end' => $this->request->getVar('end_time'),      
+           
+        ];
+        $category = $this->request->getVar('category');
+        
+        $user = $model->where('location',$category)->findAll();
+     
+        if($user!=NULL)
+        {   
+            $location = $this->request->getVar('website');
+            
+            if($user[0]['category']==$location)
+            {       
+                $data_id = $user[0]['id'];                
+                $model->update($data_id, $data);
+
+                echo '
+                    <script>		
+                        alert("資料已儲存!");                       
+                    </script>';
+                    return view('posts/control.php');
+            }
+            else
+            {
+                $model->save($data);        
+                echo '
+                    <script>		
+                        alert("資料已儲存!");
+                        
+                    </script>';
+                    return view('posts/control.php');
+            }
+            
+        }
+        else//如果沒有就創立
+        {
+            $model->save($data);        
+                echo '
+                    <script>		
+                        alert("資料已儲存!");
+                        
+                    </script>';
+                    return view('posts/control.php');
+        }
+   
+    }
+    public function control_consequence($location)
+    {           
+        $model = new control();
+        $controls = ['category'=>$model->where('category',$location)->findall()];
+        if($controls==null)
+        {
+            return 1;
+        }
+        else
+        {
+        
+        
+        $time_start = $controls['category'][0]['time'];
+        $time_end =  $controls['category'][0]['time_end'];
+        $today = date("Y-m-d");
+        if($today>$time_end||$today<$time_start)
+        {
+            return 0;//代表不能進入
+        }
+        else
+        {
+            return 1;
+        }
+        }
+       
+    }
+
+
     public function search_univStar()
     {   
          
@@ -184,5 +267,6 @@ class ControlController extends BaseController{
             
         }
     }
+    
 }}
 ?>
