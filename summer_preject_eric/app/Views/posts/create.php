@@ -150,8 +150,8 @@
 	<script>
 		// 防呆(並免發布日期晚於下架日期)
 		$('form').submit(function() {
-			if($('input[name="dateStart"]').val() > $('input[name="dateEnd"]').val()) {
-				alert("發布日期晚於下架日期")
+			if($('input[name="dateStart"]').val() >= $('input[name="dateEnd"]').val()) {
+				alert("發布日期必須早於下架日期")
 				event.preventDefault()
 				return flase
 			}
