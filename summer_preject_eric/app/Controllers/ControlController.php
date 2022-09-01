@@ -64,6 +64,14 @@ class ControlController extends BaseController{
     {           
         $model = new control();
         $controls = ['category'=>$model->where('category',$location)->findall()];
+        if($controls==null)
+        {
+            return 1;
+        }
+        else
+        {
+        
+        
         $time_start = $controls['category'][0]['time'];
         $time_end =  $controls['category'][0]['time_end'];
         $today = date("Y-m-d");
@@ -74,6 +82,7 @@ class ControlController extends BaseController{
         else
         {
             return 1;
+        }
         }
        
     }
