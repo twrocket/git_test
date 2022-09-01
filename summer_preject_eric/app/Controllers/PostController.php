@@ -401,4 +401,8 @@ class PostController extends BaseController
 
         return view('posts/control_post', $data);
     }
+    public function to_control()
+    {
+        return view('posts/control');
+    }
 }

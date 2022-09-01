@@ -89,10 +89,7 @@ check();
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link-dark" href="/PostController/disuploaded">已下架</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link-dark" href="/PostController/control">管理時間</a>
-                    </li>
+                    </li>                    
                     <li class="nav-item">
                         <a class="nav-link link-dark" href="/PostController/time_state">時間狀態</a>
                     </li>
