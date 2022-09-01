@@ -20,21 +20,40 @@ class ControlController extends BaseController{
         $category = $this->request->getVar('category');
         
         $user = $model->where('location',$category)->findAll();
-     
+        
         if($user!=NULL)
         {   
             $location = $this->request->getVar('website');
-            
-            if($user[0]['category']==$location)
+            $i=0;
+            $correct = 0;
+            foreach($user as $part)
+            {   
+                
+                if($user[$i]['category']==$location)
+                {
+                    $correct = $i;
+                    
+                }
+                else
+                {
+                    $i++;
+                }
+
+                
+            }
+            // print_r($user);
+            // echo $user[$correct]['category'];
+            // echo $location;
+            if($user[$correct]['category']==$location)
             {       
-                $data_id = $user[0]['id'];                
+                $data_id = $user[$correct]['id'];                
                 $model->update($data_id, $data);
 
                 echo '
                     <script>		
                         alert("資料已儲存!");                       
                     </script>';
-                    return view('posts/control.php');
+                  return view('posts/control.php');
             }
             else
             {
@@ -56,7 +75,7 @@ class ControlController extends BaseController{
                         alert("資料已儲存!");
                         
                     </script>';
-                    return view('posts/control.php');
+                  return view('posts/control.php');
         }
    
     }
@@ -64,16 +83,25 @@ class ControlController extends BaseController{
     {           
         $model = new control();
         $controls = ['category'=>$model->where('category',$location)->findall()];
+        if($controls==null)
+        {
+            return 1;
+        }
+        else
+        {
+        
+        
         $time_start = $controls['category'][0]['time'];
         $time_end =  $controls['category'][0]['time_end'];
         $today = date("Y-m-d");
         if($today>$time_end||$today<$time_start)
         {
             return 0;//代表不能進入
-        }
+        }        
         else
         {
             return 1;
+        }
         }
        
     }
