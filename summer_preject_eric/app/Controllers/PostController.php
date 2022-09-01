@@ -83,34 +83,42 @@ class PostController extends BaseController
     
     public function store()
     {   
+<<<<<<< HEAD
         $title = $this->request->getVar('title');        
         $title = trim($title);
         $title = preg_replace('/\s(?=)/', '', $title);
+=======
+        if (!(is_dir('File/')))//資料夾名稱不存在
+        {    $path = '../public/File/';
+             mkdir($path, 0777, false);//建立File資料夾
+        } 
+
+>>>>>>> f628261cf55cd8c33becdb132dd6702989825da2
         $title = date('m-d-Y_h-i-s');
         $title = preg_replace('/\s(?=)/', '', $title);
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
-        /*
-          echo '檔案名稱: ' . $_FILES['my_file']['name'] . '<br/>';
-          echo '檔案類型: ' . $_FILES['my_file']['type'] . '<br/>';
-          echo '檔案大小: ' . ($_FILES['my_file']['size'] / 1024) . ' KB<br/>';
-          echo '暫存名稱: ' . $_FILES['my_file']['tmp_name'] . '<br/>';
-        */
-        # 檢查檔案是否已經存在
-        if (!(is_dir('File/'.$title)))//資料夾名稱不存在
-        {    $path = '../public/File/'.$title;
-             mkdir($path, 0777, false);//建立資料夾
-        } 
-        if (file_exists('File/'.$title.'/'.$_FILES['file']['name'])){
-            //echo '檔案已存在。<br/>';
-        } 
-        else {
-            $file = $_FILES['file']['tmp_name'];
-            $dest = 'File/'.$title.'/'.$_FILES['file']['name'];
-        
-            # 將檔案移至指定位置
-            move_uploaded_file($file, $dest);
-        }
+            /*
+            echo '檔案名稱: ' . $_FILES['my_file']['name'] . '<br/>';
+            echo '檔案類型: ' . $_FILES['my_file']['type'] . '<br/>';
+            echo '檔案大小: ' . ($_FILES['my_file']['size'] / 1024) . ' KB<br/>';
+            echo '暫存名稱: ' . $_FILES['my_file']['tmp_name'] . '<br/>';
+            */
+            # 檢查檔案是否已經存在
+            if (!(is_dir('File/'.$title)))//資料夾名稱不存在
+            {    $path = '../public/File/'.$title;
+                mkdir($path, 0777, false);//建立資料夾
+            } 
+            if (file_exists('File/'.$title.'/'.$_FILES['file']['name'])){
+                //echo '檔案已存在。<br/>';
+            } 
+            else {
+                $file = $_FILES['file']['tmp_name'];
+                $dest = 'File/'.$title.'/'.$_FILES['file']['name'];
+            
+                # 將檔案移至指定位置
+                move_uploaded_file($file, $dest);
+            }
         }
         else {
             //echo '錯誤代碼：' . $_FILES['files']['error'] . '<br/>';
@@ -145,10 +153,20 @@ class PostController extends BaseController
     
     public function update()
     {
+<<<<<<< HEAD
+=======
+        if (!(is_dir('File/')))//資料夾名稱不存在
+        {    $path = '../public/File/';
+             mkdir($path, 0777, false);//建立File資料夾
+        }
+        
+>>>>>>> f628261cf55cd8c33becdb132dd6702989825da2
         $model = new Post();
         
         $post_id = $this->request->getVar('id');
-        $user = $model->find($post_id);        
+        $user = $model->find($post_id);  
+        $file_change = false;
+        
         if($user['file_name']==NULL)
         {
             $title = date('m-d-Y_h-i-s');
@@ -162,28 +180,33 @@ class PostController extends BaseController
         }
         # 檢查檔案是否上傳成功        
         if ($_FILES['file']['error'] === UPLOAD_ERR_OK){
-        /*
-          echo '檔案名稱: ' . $_FILES['my_file']['name'] . '<br/>';
-          echo '檔案類型: ' . $_FILES['my_file']['type'] . '<br/>';
-          echo '檔案大小: ' . ($_FILES['my_file']['size'] / 1024) . ' KB<br/>';
-          echo '暫存名稱: ' . $_FILES['my_file']['tmp_name'] . '<br/>';
-        */
-        # 檢查檔案是否已經存在
-        if (!(is_dir('File/'.$title)))//資料夾名稱不存在
-        {    $path = '../public/File/'.$title;
-             mkdir($path, 0777, false);//建立資料夾
-        } 
-        if (file_exists('File/'.$title.'/'.$_FILES['file']['name'])){
-            //echo '檔案已存在。<br/>';
-            unlink('File/'.$title.'/'.$_FILES['file']['name']);//刪除檔案             
-        } 
-        else {
-            $file = $_FILES['file']['tmp_name'];
-            $dest = 'File/'.$title.'/'.$_FILES['file']['name'];
-        
-            # 將檔案移至指定位置
-            move_uploaded_file($file, $dest);
-        }
+            /*
+            echo '檔案名稱: ' . $_FILES['my_file']['name'] . '<br/>';
+            echo '檔案類型: ' . $_FILES['my_file']['type'] . '<br/>';
+            echo '檔案大小: ' . ($_FILES['my_file']['size'] / 1024) . ' KB<br/>';
+            echo '暫存名稱: ' . $_FILES['my_file']['tmp_name'] . '<br/>';
+            */
+            # 檢查檔案是否已經存在
+            if (!(is_dir('File/'.$title)))//資料夾名稱不存在
+            {    $path = '../public/File/'.$title;
+                mkdir($path, 0777, false);//建立資料夾
+            } 
+            if (file_exists('File/'.$title.'/'.$_FILES['file']['name'])){
+                //echo '檔案已存在。<br/>';
+                unlink('File/'.$title.'/'.$_FILES['file']['name']);//刪除檔案             
+            } 
+            else {
+                $file = $_FILES['file']['tmp_name'];
+                $dest = 'File/'.$title.'/'.$_FILES['file']['name'];
+            
+                if($user['file'] != NULL) {
+                    unlink('File/'.$title.'/'.$user['file']);//刪除檔案
+                }
+                $file_change = true;
+
+                # 將檔案移至指定位置
+                move_uploaded_file($file, $dest);
+            }
         }
         else {
             //echo '錯誤代碼：' . $_FILES['files']['error'] . '<br/>';
@@ -192,18 +215,33 @@ class PostController extends BaseController
             'id' => $this->request->getVar('id')
         ];
         
-		$data = [
-            'title' => $this->request->getVar('title'),
-            'website' => $this->request->getVar('website'),
-            'category' => $this->request->getVar('category'),
-            'content' => $this->request->getVar('content'),
-            'file' =>$_FILES['file']['name'],
-            'dateStart' => $this->request->getVar('dateStart'),
-            'dateEnd' => $this->request->getVar('dateEnd'),
-            'update' => $this->request->getVar('update'),
-            'status' => $this->request->getVar('status'),
-            'status_time'=>'未處理',                  
-        ];
+        if($file_change == true) {
+            $data = [
+                'title' => $this->request->getVar('title'),
+                'website' => $this->request->getVar('website'),
+                'category' => $this->request->getVar('category'),
+                'content' => $this->request->getVar('content'),
+                'file' => $_FILES['file']['name'],
+                'dateStart' => $this->request->getVar('dateStart'),
+                'dateEnd' => $this->request->getVar('dateEnd'),
+                'update' => $this->request->getVar('update'),
+                'status' => $this->request->getVar('status'),
+                'status_time'=>'未處理',                  
+            ];
+        }
+        else {
+            $data = [
+                'title' => $this->request->getVar('title'),
+                'website' => $this->request->getVar('website'),
+                'category' => $this->request->getVar('category'),
+                'content' => $this->request->getVar('content'),
+                'dateStart' => $this->request->getVar('dateStart'),
+                'dateEnd' => $this->request->getVar('dateEnd'),
+                'update' => $this->request->getVar('update'),
+                'status' => $this->request->getVar('status'),
+                'status_time'=>'未處理',                  
+            ];
+        }
 
         $model->update($data_id, $data);
         include('..\app\Controllers\ControlController.php');
@@ -330,15 +368,11 @@ class PostController extends BaseController
         $path_file = '../public/File/'.$folder_name.'/'.$file_name;
         $path_folder = '../public/File/'.$folder_name;
         
-        if($file_name==NULL)
-        {
-
-        }
-        else
+        if($file_name != NULL)
         {   
             // $all_file =  scandir($path_folder);
             // print_r($all_file);
-            if ((is_dir($path_file)))
+            if (!(is_dir($path_file)))
             {   
                 unlink($path_file);
                 rmdir($path_folder); 
