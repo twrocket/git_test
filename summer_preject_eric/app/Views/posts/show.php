@@ -26,34 +26,24 @@
 
     <!-- 內容 -->
     <div class="px-4 py-4 my-0 text-center">
-        <div class="card col-lg-10 mx-auto mb-3">
-            <div class="card-body">
-                <h3 class="card-text"><?php echo $posts['title'] ?></h3>
-            </div>
-        </div>
         <div class="col-lg-10 mx-auto">
+            <h3 class="newline fw-bold mb-3 p-3 border border-dark rounded"><?php echo $posts['title'] ?></h3>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <p class="px-4 me-sm-3">發布位置 : <?php echo $posts['website'] ?></p>
                 <p class="px-4 me-sm-3">類別 : <?php echo $posts['category'] ?></p>
             </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="card-text"><?php echo $posts['content'] ?></div>
-                </div>
-            </div>
+            <div class="newline mb-4 p-2 border border-dark rounded" style="min-height: 30vh"><?php echo $posts['content'] ?></div>
 
             <?php
-            if($posts['file']==NULL)
-            {
-                echo "<p>上傳檔案 : 此貼文無檔案</p>";
+            if($posts['file']==NULL) {
+                echo '<p>上傳檔案 : 此貼文無檔案</p>';
             }
-            else
-            {   $path =  '/File/'.$posts["file_name"].'/'.$posts["file"];
-                echo '<span>上傳檔案 : </span>';
-                echo '<a href ="'.$path.'" download = '.$posts["file"].' class="text-decoration-none">
-                        '.$posts["file"].'
-                     </a>
-                     ';
+            else {
+                $path =  '/File/'.$posts["file_name"].'/'.$posts["file"];
+                echo '
+                    <span>上傳檔案 : </span>
+                    <a href ="'.$path.'" download = '.$posts["file"].' class="text-decoration-none">'.$posts["file"].'</a>
+                ';
             }
             ?>
 

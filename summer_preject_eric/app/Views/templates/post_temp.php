@@ -107,7 +107,9 @@ check();
 <?= $this->section('footer') ?>
     <div class="py-2 mb-0">
         <div class="container d-flex flex-wrap justify-content-center">
-            <span class="fs-6">2022 大學甄選入學委員會</span>
+            服務時間：平日(周一至周五)：上午8:00~12:00；下午13:00~17:00。例假日及國定假日暫停服務。<br>
+            621301嘉義縣民雄鄉大學路一段168號 (05)2721799<br>
+            Copyright by CAC. All rights reserved.
         </div>
     </div>
 <?= $this->endSection() ?>

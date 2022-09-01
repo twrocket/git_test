@@ -2,12 +2,20 @@ header {
     min-height: 15vh;
 }
 
-main>div {
-    min-height: 80vh;
+@media screen and (min-width:768px) { 
+    main>div {
+        min-height: 75vh;
+    }
+}
+
+@media screen and (max-width:768px) { 
+    #content {
+        min-height: 70vh;
+    }
 }
 
 footer {
-    min-height: 5vh;
+    min-height: 10vh;
     color: #dbb12a;
     background-color: #150e03;
 }
