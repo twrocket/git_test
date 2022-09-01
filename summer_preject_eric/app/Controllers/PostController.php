@@ -154,7 +154,8 @@ class PostController extends BaseController
         {    $path = '../public/File/';
              mkdir($path, 0777, false);//建立File資料夾
         }
-
+        if()
+        if($_FILES['file']['name'])
         $model = new Post();
         
         $post_id = $this->request->getVar('id');
