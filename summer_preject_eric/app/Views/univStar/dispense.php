@@ -2,17 +2,7 @@
 
 <?= $this->section('head_info') ?>    
 	<title>大學甄選入學委員會-錄取(篩選)結果查詢</title>
-    <?php
-    //重新導向 不能用header 因為header後不接受資料輸出 改用js
-    
-    echo '
-    <script>
-    alert("抱歉!現在不接受查詢");
-    alert("現在為您跳轉到首頁!");
-    window.location.href="/UnivStar/index";
-    </script>
-    ';
-    ?>
+   
     
 <?= $this->endSection() ?>
 

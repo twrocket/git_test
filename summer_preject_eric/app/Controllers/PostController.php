@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\control;
 use App\Models\Post;
 session_start();
 
@@ -140,8 +141,7 @@ class PostController extends BaseController
                 alert("資料已儲存!");
                 window.location.href="/PostController/index";
             </script>';
-    }
-
+    }  
     public function update()
     {
         $model = new Post();
@@ -360,5 +360,45 @@ class PostController extends BaseController
                 alert("資料已刪除!");
                 window.location.href="/PostController/'.$page.'";
             </script>';
+    }
+    public function control()
+    {      
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
+        }
+
+        $model = new Post();
+
+        $data = [
+            'posts' => $model->where('status_time', "上架中")->findAll()
+        ];
+
+        return view('posts/control', $data);
+    }
+    public function time_state()
+    {      
+        // 未登入者，將跳轉至登入頁面
+        if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] == 0) {
+            echo '
+                <script>		
+                    alert("抱歉! 您尚未登入\n請先進行登入動作!");
+                    alert("將為您跳轉到登入頁面!");
+                    window.location.href="/LoginController/index";
+                </script>';
+        }
+
+        $model = new control();
+
+        $data = [
+            'controls' => $model->findAll()
+        ];
+
+        return view('posts/control_post', $data);
     }
 }
