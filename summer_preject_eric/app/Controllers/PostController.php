@@ -154,12 +154,13 @@ class PostController extends BaseController
         {    $path = '../public/File/';
              mkdir($path, 0777, false);//建立File資料夾
         }
-        if()
-        if($_FILES['file']['name'])
+        
         $model = new Post();
         
         $post_id = $this->request->getVar('id');
-        $user = $model->find($post_id);        
+        $user = $model->find($post_id);  
+        $file_change = false;
+        
         if($user['file_name']==NULL)
         {
             $title = date('m-d-Y_h-i-s');
@@ -192,6 +193,11 @@ class PostController extends BaseController
             $file = $_FILES['file']['tmp_name'];
             $dest = 'File/'.$title.'/'.$_FILES['file']['name'];
         
+            if($user['file'] != NULL) {
+                unlink('File/'.$title.'/'.$user['file']);//刪除檔案
+            }
+            $file_change = true;
+
             # 將檔案移至指定位置
             move_uploaded_file($file, $dest);
         }
@@ -203,18 +209,33 @@ class PostController extends BaseController
             'id' => $this->request->getVar('id')
         ];
         
-		$data = [
-            'title' => $this->request->getVar('title'),
-            'website' => $this->request->getVar('website'),
-            'category' => $this->request->getVar('category'),
-            'content' => $this->request->getVar('content'),
-            'file' =>$_FILES['file']['name'],
-            'dateStart' => $this->request->getVar('dateStart'),
-            'dateEnd' => $this->request->getVar('dateEnd'),
-            'update' => $this->request->getVar('update'),
-            'status' => $this->request->getVar('status'),
-            'status_time'=>'未處理',                  
-        ];
+        if($file_change == true) {
+            $data = [
+                'title' => $this->request->getVar('title'),
+                'website' => $this->request->getVar('website'),
+                'category' => $this->request->getVar('category'),
+                'content' => $this->request->getVar('content'),
+                'file' => $_FILES['file']['name'],
+                'dateStart' => $this->request->getVar('dateStart'),
+                'dateEnd' => $this->request->getVar('dateEnd'),
+                'update' => $this->request->getVar('update'),
+                'status' => $this->request->getVar('status'),
+                'status_time'=>'未處理',                  
+            ];
+        }
+        else {
+            $data = [
+                'title' => $this->request->getVar('title'),
+                'website' => $this->request->getVar('website'),
+                'category' => $this->request->getVar('category'),
+                'content' => $this->request->getVar('content'),
+                'dateStart' => $this->request->getVar('dateStart'),
+                'dateEnd' => $this->request->getVar('dateEnd'),
+                'update' => $this->request->getVar('update'),
+                'status' => $this->request->getVar('status'),
+                'status_time'=>'未處理',                  
+            ];
+        }
 
         $model->update($data_id, $data);
         include('..\app\Controllers\ControlController.php');
@@ -341,15 +362,11 @@ class PostController extends BaseController
         $path_file = '../public/File/'.$folder_name.'/'.$file_name;
         $path_folder = '../public/File/'.$folder_name;
         
-        if($file_name==NULL)
-        {
-
-        }
-        else
+        if($file_name != NULL)
         {   
             // $all_file =  scandir($path_folder);
             // print_r($all_file);
-            if ((is_dir($path_file)))
+            if (!(is_dir($path_file)))
             {   
                 unlink($path_file);
                 rmdir($path_folder); 
